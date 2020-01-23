@@ -27,10 +27,12 @@ This version of the document is based on the proposed version of the NL API stra
 - API-16: Use OAS 3.0 for documentation
     - We check if the `openapi`-parameter of the documentation page has a value with first digit greater then 3
         - Level: 1
-- API-21: 
+- API-21: Inform users of a deprecated API actively
     -   We check if the API can return `Warning`-headers
+        - Level: 2
 - API-22: JSON first - APIs receive and send JSON
     - Check if the first (default) media type of response contents is a JSON media type
+        - Level: 2
 - API-24: Support content negotiation
     - We check if multiple content types are defined
         - Level: 2
