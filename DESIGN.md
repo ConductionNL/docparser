@@ -27,9 +27,6 @@ This version of the document is based on the proposed version of the NL API stra
 - API-16: Use OAS 3.0 for documentation
     - We check if the `openapi`-parameter of the documentation page has a value with first digit greater then 3
         - Level: 1
-- API-21: Inform users of a deprecated API actively
-    -   We check if the API can return `Warning`-headers
-        - Level: 2
 - API-22: JSON first - APIs receive and send JSON
     - Check if the first (default) media type of response contents is a JSON media type
         - Level: 2
@@ -37,13 +34,13 @@ This version of the document is based on the proposed version of the NL API stra
     - We check if multiple content types are defined
         - Level: 2
 - API-25: Check the Content-Type header settings
-    - We check if the request header `Content-Type` is accepted
+    - This is tested implicitly by testing API-24
         - Level: 2
 - API-26: Define field names in in camelCase
     - We check if the properties are alphabetic, and if the first character is not capitalised
         - Level: 2
 - API-29: Support JSON-encoded POST, PUT, and PATCH payloads
-    - We validate if application/json is available in requestBody.content for these HTTP Methods
+    - This is tested implicitly by testing API-22
         - Level: 2
 - API-42: Use JSON+HAL with media type `application/hal+json` for pagination
     - We check if the content type `application/hal+json` is available for response content
@@ -88,10 +85,14 @@ Headers that should ***not*** be accepted:
 See also our [Roadmap](ROADMAP.md)
 - API-06: Create relations of nested resources within the endpoint
 - API-10: Implement operations that do not fit the CRUD model as sub-resources
+- API-21: Inform users of a deprecated API actively
+    -   We check if the API can return `Warning`-headers
+        - Level: 2
 - API-30: Use query parameters corresponding to the queryable fields
 - API-31: Use the query parameter `sorteer` to sort
 - API-32: Use the query parameter `zoek` for full-text search
 - API-43: Apply caching to improve performance
+
 
 ## Design rules we can not check
 There is a number of design rules for the NL API Strategie that we can not check.
