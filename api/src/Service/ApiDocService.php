@@ -6,85 +6,108 @@ namespace App\Service;
 
 class ApiDocService
 {
-    private function array_flatten(array $array){
+    private function array_flatten(array $array)
+    {
         $response = [];
-        foreach($array as $arr){
+        foreach ($array as $arr) {
             $response = array_merge($response, $arr);
         }
         return $response;
     }
+
     private function getPathParameters(array $methods)
     {
         $response = [];
-        foreach($methods as $method){
-             array_push($response, $method['parameters']);
+        foreach ($methods as $method) {
+            array_push($response, $method['parameters']);
         }
         return $this->array_flatten($response);
     }
+
     private function getContentTypesPerStatus($statuses)
     {
-        $response = ['API-22'=>'ok', 'API-24'=>'ok', 'API-42'=>'ok'];
-        foreach($statuses as $status){
+        $response = ['API-22' => 'ok', 'API-24' => 'ok', 'API-42' => 'ok'];
+        foreach ($statuses as $status) {
 
-            if(key_exists('content', $status )) {
+            if (key_exists('content', $status)) {
                 //var_dump(array_keys($status['content'])[0]);
                 $keys = array_keys($status['content']);
                 if (strpos($keys[0], 'json') === false)
                     $response['API-22'] = 'warning';
                 if (count($keys) <= 1)
                     $response['API-24'] = 'warning';
-                if(!in_array('application/hal+json', $keys))
+                if (!in_array('application/hal+json', $keys))
                     $response['API-42'] = 'warning';
+                if (!empty($status['content']) && key_exists('schema', $status['content'][$keys[0]])) {
+                   // var_dump($status['content'][$keys[0]]['schema']);
+                    if(key_exists('$ref', $status['content'][$keys[0]]['schema']))
+                        $ref = explode('/', $status['content'][$keys[0]]['schema']['$ref']);
+                    else{
+                        $ref = explode('/', $status['content'][$keys[0]]['schema']['items']['$ref']);
+                    }
+                    $response['schema'] = end($ref);
+                }
             }
         }
         return $response;
     }
+
     private function checkContentTypes(array $path)
     {
-        $response = ['API-22'=>'ok', 'API-24'=>'ok', 'API-42'=>'ok'];
-        foreach($path as $method) {
+        $response = ['API-22' => 'ok', 'API-24' => 'ok', 'API-42' => 'ok', 'schema'=>''];
+        foreach ($path as $method) {
             if (
                 key_exists('requestBody', $method) &&
-                key_exists('content', $method['requestBody'])){
+                key_exists('content', $method['requestBody'])) {
                 $keys = array_keys($method['requestBody']['content']);
-                if(strpos($keys[0], 'json') === false)
+                if (strpos($keys[0], 'json') === false)
                     $response['API-22'] = 'warning';
-                if(count($keys)<=1)
+                if (count($keys) <= 1)
                     $response['API-24'] = 'warning';
+                if(!empty($method['requestBody']['content']) && key_exists('schema', $method['requestBody']['content'][$keys[0]])) {
+                    $ref = explode('/', $method['requestBody']['content'][$keys[0]]['schema']['$ref']);
+                    $response['schema'] = end($ref);
+                }
             }
-            if(key_exists('responses', $method)){
+            if (key_exists('responses', $method)) {
                 $responseResponse = $this->getContentTypesPerStatus($method['responses']);
-                if($responseResponse['API-22'] != 'ok')
+                if ($responseResponse['API-22'] != 'ok')
                     $response['API-22'] = $responseResponse['API-22'];
-                if($responseResponse['API-24'] != 'ok')
+                if ($responseResponse['API-24'] != 'ok')
                     $response['API-24'] = $responseResponse['API-24'];
-                if($responseResponse['API-42'] != 'ok')
+                if ($responseResponse['API-42'] != 'ok')
                     $response['API-42'] = $responseResponse['API-42'];
+                if(key_exists('schema', $responseResponse))
+                    $response['schema'] = $responseResponse['schema'];
             }
         }
         return $response;
     }
+
     private function checkAuthorizationHeader(array $parameters)
     {
-        foreach($parameters as $parameter){
-            if($parameter['name'] == 'Authorization'&& $parameter['in'] == 'header')
-                return true;
+        foreach ($parameters as $parameter) {
+            if ($parameter['name'] == 'Authorization' && $parameter['in'] == 'header')
+                return 'ok';
         }
-        return false;
+        return 'warning';
     }
+
     private function checkParametersForFields(array $parameters)
     {
-    //var_dump($parameters);
-    foreach($parameters as $parameter){
-        if(($parameter['name'] == 'fields[]' && $parameter['in'] == 'query'))
-            return 'ok';
+        //var_dump($parameters);
+        foreach ($parameters as $parameter) {
+            if (($parameter['name'] == 'fields[]' && $parameter['in'] == 'query'))
+                return 'ok';
         }
-    return 'danger';
+        return 'danger';
     }
-    private function checkDefaultMethods(array $path){
+
+    private function checkDefaultMethods(array $path)
+    {
         $methods = array_keys($path);
-        foreach($methods as $method){
-            switch($method){
+        foreach ($methods as $method) {
+            switch ($method) {
                 case 'post':
                 case 'get':
                 case 'put':
@@ -97,56 +120,59 @@ class ApiDocService
             return 'ok';
         }
     }
-    private function checkOpenApiVersion(array $oas){
-        if((int)substr($oas['openapi'],0,1)>=3)
+
+    private function checkOpenApiVersion(array $oas)
+    {
+        if ((int)substr($oas['openapi'], 0, 1) >= 3)
             return 'ok';
         return 'danger';
     }
+    private function checkPropertyName(string $name)
+    {
+        if(ctype_alpha($name) && !ctype_upper($name[0]))
+            return 'ok';
+        return 'warning';
+    }
+    private function checkEndpoint($endpoint){
+        if(substr($endpoint, -1) == '/')
+            return 'danger';
+        return 'ok';
+    }
+    private function checkSchema(array $schema)
+    {
+        $response = [];
 
-    public function assessDocumentation(array $oas) :array
+        foreach($schema['properties'] as $key=>$property){
+            $response[$key]['API-26: camel case'] = $this->checkPropertyName($key);
+        }
+        return $response;
+    }
+    public function assessDocumentation(array $oas): array
     {
         $responses = [];
         //$parameterCheck = $this->checkParameters($oas);
         //$methodCheck = $this->getAllMethods($oas);
-        $responses['API-03: Default HTTP-methods'] = 'ok';
-        $responses['API-09: Custom representation'] = 'ok';
-        $responses['API-13: Authorization only as header'] = 'ok';
+
         $responses['API-16: OpenApi-version'] = $this->checkOpenApiVersion($oas);
-        $responses['API-22: JSON First'] = 'ok';
-        $responses['API-24: Content Negotiation'] = 'ok';
-        $responses['API-25: Content-Type'] = 'ok';
-        $responses['API-42: JSON Pagination'] = 'ok';
 
-        foreach($oas['paths'] as $path){
-
+        //var_dump($oas['paths']);
+        foreach ($oas['paths'] as $key => $path) {
+//            var_dump($key);
             $parameters = $this->getPathParameters($path);
-            $api03 = $this->checkDefaultMethods($path);
-            $api09 = $this->checkParametersForFields($parameters);
-            $api13 = $this->checkAuthorizationHeader($parameters);
-            $contentTypes  = $this->checkContentTypes($path);
-            $api22 = $contentTypes['API-22'];
-            $api24 = $contentTypes['API-24'];
-            $api42 = $contentTypes['API-42'];
-            if($api03 != 'ok')
-                $responses['API-03: Default HTTP-methods'] = $api03;
-            if($api09 != 'ok')
-                $responses['API-09: Custom representation'] = $api09;
-            if($api13 != 'ok')
-                $responses['API-13: Authorization only as header'] = $api13;
-            if($api22 != 'ok'){
-                $responses['API-22: JSON First'] = $api22;
-                $responses['API-29: JSON Payloads'] = $api22;
-            }
-            if($api24 != 'ok'){
-                $responses['API-24: Content Negotiation'] = $api24;
-                $responses['API-25: Content-Type'] = $api24;
-            }
+            $responses[$key]['API-03: Default HTTP-methods'] = $this->checkDefaultMethods($path);
+            $responses[$key]['API-09: Custom representation'] = $this->checkParametersForFields($parameters);
+            $responses[$key]['API-13: Authorization only as header'] = $this->checkAuthorizationHeader($parameters);
+            $contentTypes = $this->checkContentTypes($path);
+            $responses[$key]['API-22: JSON First'] = $contentTypes['API-22'];
+            $responses[$key]['API-24: Content Negotiation'] = $responses[$key]['API-25: Content-Type'] = $contentTypes['API-24'];
+            $responses[$key]['API-29: JSON Payloads'] = $contentTypes['API-22'];
+            $responses[$key]['API-42: JSON Pagination'] = $contentTypes['API-42'];
+            $responses[$key]['API-48: Leave off trailing slashes'] = $this->checkEndpoint($key);
+            //var_dump($contentTypes['schema']);
+            $responses[$key]['schema'] = $contentTypes['schema'];
+            $responses[$key]['properties'] = $this->checkSchema($oas['components']['schemas'][$contentTypes['schema']]);
 
-            if($api42 != 'ok')
-                $responses['API-42: JSON Pagination'] = $api42;
         }
-
-
         return $responses;
     }
 }
