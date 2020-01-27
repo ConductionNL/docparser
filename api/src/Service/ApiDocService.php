@@ -102,6 +102,24 @@ class ApiDocService
         }
         return 'danger';
     }
+    private function checkParametersForSearch(array $parameters)
+    {
+        //var_dump($parameters);
+        foreach ($parameters as $parameter) {
+            if ((($parameter['name'] == 'search' || $parameter['name'] == 'zoek') && $parameter['in'] == 'query'))
+                return 'ok';
+        }
+        return 'warning';
+    }
+    private function checkParametersForSort(array $parameters)
+    {
+        //var_dump($parameters);
+        foreach ($parameters as $parameter) {
+            if ((($parameter['name'] == 'sort' || $parameter['name'] == 'sorteer') && $parameter['in'] == 'query'))
+                return 'ok';
+        }
+        return 'warning';
+    }
 
     private function checkDefaultMethods(array $path)
     {
@@ -166,6 +184,8 @@ class ApiDocService
             $responses[$key]['API-22: JSON First'] = $contentTypes['API-22'];
             $responses[$key]['API-24: Content Negotiation'] = $responses[$key]['API-25: Content-Type'] = $contentTypes['API-24'];
             $responses[$key]['API-29: JSON Payloads'] = $contentTypes['API-22'];
+            $responses[$key]['API-31: Sorting'] = $this->checkParametersForSort($parameters);
+            $responses[$key]['API-32: Searching'] = $this->checkParametersForSort($parameters);
             $responses[$key]['API-42: JSON Pagination'] = $contentTypes['API-42'];
             $responses[$key]['API-48: Leave off trailing slashes'] = $this->checkEndpoint($key);
             //var_dump($contentTypes['schema']);
