@@ -27,6 +27,7 @@ use Doctrine\ORM\Mapping as ORM;
 class ApiDoc
 {
     /**
+	 * @Groups({"read"})
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -34,11 +35,13 @@ class ApiDoc
     private $id;
 
     /**
+	 * @Groups({"read","write"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $docs;
 
     /**
+	 * @Groups({"read","write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $url;
