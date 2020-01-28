@@ -699,9 +699,22 @@ components:
     ApiDoc-read:
       type: object
       description: ''
+      properties:
+        id:
+          readOnly: true
+          type: integer
+        docs:
+          type: string
+        url:
+          type: string
     ApiDoc-write:
       type: object
       description: ''
+      properties:
+        docs:
+          type: string
+        url:
+          type: string
     'ApiDoc:jsonld-read':
       type: object
       description: ''
@@ -714,6 +727,13 @@ components:
           type: string
         '@type':
           readOnly: true
+          type: string
+        id:
+          readOnly: true
+          type: integer
+        docs:
+          type: string
+        url:
           type: string
     'ApiDoc:jsonld-write':
       type: object
@@ -728,7 +748,22 @@ components:
         '@type':
           readOnly: true
           type: string
-definitions: []
+        docs:
+          type: string
+        url:
+          type: string
+definitions:
+  ApiDoc-read:
+    properties:
+      id: []
+      docs: []
+      url: []
+    required: []
+  ApiDoc-write:
+    properties:
+      docs: []
+      url: []
+    required: []
 tags:
   -
     name: ApiDoc
@@ -741,12 +776,16 @@ securityDefinitions:
     type: oauth2
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
-    scopes: []
+    scopes:
+      read: 'read right to the ApiDoc resource'
+      write: 'write right to the ApiDoc resource'
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
-    scopes: []
+    scopes:
+      read: 'read right to the ApiDoc resource'
+      write: 'write right to the ApiDoc resource'
 host: irc.zaakonline.nl
 servers:
   -
