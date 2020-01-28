@@ -1,40 +1,40 @@
 openapi: 3.0.2
 info:
-  title: 'Proto Component'
+  title: 'Doc Parser Service'
   version: V.0.1
   description: |
     API Details
-    - Component: Proto Component
-    - Reference: pc
+    - Component: Doc Parser Service
+    - Reference: dps
     - Enviroment: dev
     - Version: V.0.1
     - Repository: [online](https://github.com/ConductionNL/Proto-component-commonground) / [zip](https://github.com/ConductionNL/Proto-component-commonground/archive/master.zip)
-    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
-    - Datamodel: [postman](/schema/pc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
+    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/dps-php) 
+    - Datamodel: [postman](/schema/dps.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
     
     'Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.'         
     
 paths:
-  /example_entities:
+  /api_docs:
     get:
       tags:
-        - ExampleEntity
-      operationId: getExampleEntityCollection
-      summary: 'Retrieves the collection of ExampleEntity resources.'
+        - ApiDoc
+      operationId: getApiDocCollection
+      summary: 'Retrieves the collection of ApiDoc resources.'
       responses:
         200:
-          description: 'ExampleEntity collection response'
+          description: 'ApiDoc collection response'
           content:
             application/hal+json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExampleEntity-read'
+                  $ref: '#/components/schemas/ApiDoc-read'
             application/ld+json:
               schema:
                 type: object
                 properties:
-                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/ExampleEntity:jsonld-read' } }
+                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/ApiDoc:jsonld-read' } }
                   'hydra:totalItems': { type: integer, minimum: 0 }
                   'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
                   'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
@@ -44,45 +44,33 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExampleEntity-read'
+                  $ref: '#/components/schemas/ApiDoc-read'
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExampleEntity-read'
+                  $ref: '#/components/schemas/ApiDoc-read'
             application/xml:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExampleEntity-read'
+                  $ref: '#/components/schemas/ApiDoc-read'
             application/x-yaml:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExampleEntity-read'
+                  $ref: '#/components/schemas/ApiDoc-read'
             text/csv:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExampleEntity-read'
+                  $ref: '#/components/schemas/ApiDoc-read'
             text/html:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExampleEntity-read'
+                  $ref: '#/components/schemas/ApiDoc-read'
       parameters:
-        -
-          name: like_name
-          in: query
-          required: false
-          schema:
-            type: string
-        -
-          name: like_description
-          in: query
-          required: false
-          schema:
-            type: string
         -
           name: page
           in: query
@@ -166,43 +154,43 @@ paths:
         - application/health+json
     post:
       tags:
-        - ExampleEntity
-      operationId: postExampleEntityCollection
-      summary: 'Creates a ExampleEntity resource.'
+        - ApiDoc
+      operationId: postApiDocCollection
+      summary: 'Creates a ApiDoc resource.'
       responses:
         201:
-          description: 'ExampleEntity resource created'
+          description: 'ApiDoc resource created'
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/ld+json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity:jsonld-read'
+                $ref: '#/components/schemas/ApiDoc:jsonld-read'
             application/vnd.api+json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/xml:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             text/csv:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             text/html:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
           links:
-            GetExampleEntityItem:
+            GetApiDocItem:
               parameters:
                 id: '$response.body#/id'
-              operationId: getExampleEntityItem
-              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /example_entities/{id}`.'
+              operationId: getApiDocItem
+              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /api_docs/{id}`.'
         400:
           description: 'Invalid input'
         404:
@@ -211,29 +199,29 @@ paths:
         content:
           application/hal+json:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           application/ld+json:
             schema:
-              $ref: '#/components/schemas/ExampleEntity:jsonld-write'
+              $ref: '#/components/schemas/ApiDoc:jsonld-write'
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           application/json:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           application/xml:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           application/x-yaml:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           text/csv:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           text/html:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
-        description: 'The new ExampleEntity resource'
+              $ref: '#/components/schemas/ApiDoc-write'
+        description: 'The new ApiDoc resource'
       parameters:
         -
           name: Authorization
@@ -264,12 +252,12 @@ paths:
           name: X-NLX-Audit-Clarification
           description: 'A clarification as to why a request has been made  (doelbinding)'
           in: header
-  '/example_entities/{id}':
+  '/api_docs/{id}':
     get:
       tags:
-        - ExampleEntity
-      operationId: audittrailExampleEntityItem
-      summary: 'Retrieves a ExampleEntity resource.'
+        - ApiDoc
+      operationId: getApiDocItem
+      summary: 'Retrieves a ApiDoc resource.'
       parameters:
         -
           name: id
@@ -350,41 +338,87 @@ paths:
           in: query
       responses:
         200:
-          description: 'ExampleEntity resource response'
+          description: 'ApiDoc resource response'
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/ld+json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity:jsonld-read'
+                $ref: '#/components/schemas/ApiDoc:jsonld-read'
             application/vnd.api+json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/xml:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             text/csv:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             text/html:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
         404:
           description: 'Resource not found'
       produces:
         - application/health+json
+    delete:
+      tags:
+        - ApiDoc
+      operationId: deleteApiDocItem
+      summary: 'Removes the ApiDoc resource.'
+      responses:
+        204:
+          description: 'ApiDoc resource deleted'
+        404:
+          description: 'Resource not found'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
     put:
       tags:
-        - ExampleEntity
-      operationId: putExampleEntityItem
-      summary: 'Replaces the ExampleEntity resource.'
+        - ApiDoc
+      operationId: putApiDocItem
+      summary: 'Replaces the ApiDoc resource.'
       parameters:
         -
           name: id
@@ -423,32 +457,32 @@ paths:
           in: header
       responses:
         200:
-          description: 'ExampleEntity resource updated'
+          description: 'ApiDoc resource updated'
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/ld+json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity:jsonld-read'
+                $ref: '#/components/schemas/ApiDoc:jsonld-read'
             application/vnd.api+json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/json:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/xml:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             application/x-yaml:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             text/csv:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
             text/html:
               schema:
-                $ref: '#/components/schemas/ExampleEntity-read'
+                $ref: '#/components/schemas/ApiDoc-read'
         400:
           description: 'Invalid input'
         404:
@@ -457,39 +491,34 @@ paths:
         content:
           application/hal+json:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           application/ld+json:
             schema:
-              $ref: '#/components/schemas/ExampleEntity:jsonld-write'
+              $ref: '#/components/schemas/ApiDoc:jsonld-write'
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           application/json:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           application/xml:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           application/x-yaml:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           text/csv:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
+              $ref: '#/components/schemas/ApiDoc-write'
           text/html:
             schema:
-              $ref: '#/components/schemas/ExampleEntity-write'
-        description: 'The updated ExampleEntity resource'
-    delete:
+              $ref: '#/components/schemas/ApiDoc-write'
+        description: 'The updated ApiDoc resource'
+    patch:
       tags:
-        - ExampleEntity
-      operationId: deleteExampleEntityItem
-      summary: 'Removes the ExampleEntity resource.'
-      responses:
-        204:
-          description: 'ExampleEntity resource deleted'
-        404:
-          description: 'Resource not found'
+        - ApiDoc
+      operationId: patchApiDocItem
+      summary: 'Updates the ApiDoc resource.'
       parameters:
         -
           name: id
@@ -526,46 +555,156 @@ paths:
           name: X-NLX-Audit-Clarification
           description: 'A clarification as to why a request has been made  (doelbinding)'
           in: header
+      responses:
+        200:
+          description: 'ApiDoc resource updated'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc:jsonld-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+        description: 'The updated ApiDoc resource'
+  /apidocs/parse:
+    post:
+      tags:
+        - ApiDoc
+      operationId: post_parseApiDocCollection
+      summary: 'Creates a ApiDoc resource.'
+      responses:
+        201:
+          description: 'ApiDoc resource created'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc:jsonld-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+          links:
+            GetApiDocItem:
+              parameters:
+                id: '$response.body#/id'
+              operationId: getApiDocItem
+              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /api_docs/{id}`.'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/ApiDoc:jsonld-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+        description: 'The new ApiDoc resource'
+      parameters:
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
 components:
   schemas:
-    ExampleEntity-read:
+    ApiDoc-read:
       type: object
-      description: 'This is an example entity.'
-      properties:
-        id:
-          readOnly: true
-          externalDocs:
-            url: 'http://schema.org/identifier'
-          type: string
-        name:
-          description: 'The name of this example property'
-          type: string
-        description:
-          description: 'The description of this example property'
-          type: string
-        camelCase:
-          description: 'Proof that we camel case our api'
-          type: string
-      required:
-        - name
-    ExampleEntity-write:
+      description: ''
+    ApiDoc-write:
       type: object
-      description: 'This is an example entity.'
-      required:
-        - name
-      properties:
-        name:
-          description: 'The name of this example property'
-          type: string
-        description:
-          description: 'The description of this example property'
-          type: string
-        camelCase:
-          description: 'Proof that we camel case our api'
-          type: string
-    'ExampleEntity:jsonld-read':
+      description: ''
+    'ApiDoc:jsonld-read':
       type: object
-      description: 'This is an example entity.'
+      description: ''
       properties:
         '@context':
           readOnly: true
@@ -576,27 +715,9 @@ components:
         '@type':
           readOnly: true
           type: string
-        id:
-          readOnly: true
-          externalDocs:
-            url: 'http://schema.org/identifier'
-          type: string
-        name:
-          description: 'The name of this example property'
-          type: string
-        description:
-          description: 'The description of this example property'
-          type: string
-        camelCase:
-          description: 'Proof that we camel case our api'
-          type: string
-      required:
-        - name
-    'ExampleEntity:jsonld-write':
+    'ApiDoc:jsonld-write':
       type: object
-      description: 'This is an example entity.'
-      required:
-        - name
+      description: ''
       properties:
         '@context':
           readOnly: true
@@ -607,67 +728,25 @@ components:
         '@type':
           readOnly: true
           type: string
-        name:
-          description: 'The name of this example property'
-          type: string
-        description:
-          description: 'The description of this example property'
-          type: string
-        camelCase:
-          description: 'Proof that we camel case our api'
-          type: string
-definitions:
-  ExampleEntity-read:
-    properties:
-      id:
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      name:
-        example: 'My Group'
-        maxLength: 255
-      description:
-        example: 'Is the best group ever'
-        maxLength: 2555
-      camelCase:
-        example: 'Best api ever'
-        maxLength: 255
-    required:
-      - name
-  ExampleEntity-write:
-    properties:
-      name:
-        example: 'My Group'
-        maxLength: 255
-      description:
-        example: 'Is the best group ever'
-        maxLength: 2555
-      camelCase:
-        example: 'Best api ever'
-        maxLength: 255
-    required:
-      - name
+definitions: []
 tags:
   -
-    name: ExampleEntity
+    name: ApiDoc
     description: |
-      This is an example entity.
       
-      With an adtional description, all in all its pritty nice [url](www.google.nl)
+      
+      
 securityDefinitions:
   JWT-Oauth:
     type: oauth2
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
-    scopes:
-      read: 'read right to the ExampleEntity resource'
-      write: 'write right to the ExampleEntity resource'
+    scopes: []
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
-    scopes:
-      read: 'read right to the ExampleEntity resource'
-      write: 'write right to the ExampleEntity resource'
+    scopes: []
 host: irc.zaakonline.nl
 servers:
   -
