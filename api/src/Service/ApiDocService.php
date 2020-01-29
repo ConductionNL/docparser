@@ -226,6 +226,25 @@ class ApiDocService
 
         return $response;
     }
+    public function checkTimeTravel(array $parameters)
+    {
+        $response = [
+            'geldigOp'=>'warning',
+            'inwerkingOp'=>'warning',
+            'beschikbaarOp'=>'warning',
+            ];
+
+        foreach($parameters as $parameter){
+            if($parameter['name'] == 'geldigOp' || $parameter['name'] == 'validOn')
+                $response['geldigOp'] = 'ok';
+            if($parameter['name'] == 'inWerkingOp' || $parameter['name'] == 'validFrom')
+                $response['inwerkingOp'] = 'ok';
+            if($parameter['name'] == 'beschikbaarOp' || $parameter['name'] == 'availableFrom')
+                $response['beschikbaarOp'] = 'ok';
+        }
+
+        return $response;
+    }
     public function assessDocumentation(array $oas): array
     {
         $responses = [];
@@ -249,6 +268,7 @@ class ApiDocService
             $responses[$key]['API-32: Searching'] = $this->checkParametersForSort($parameters);
             $responses[$key]['API-42: JSON Pagination'] = $contentTypes['API-42'];
             $responses[$key]['API-48: Leave off trailing slashes'] = $this->checkEndpoint($key);
+            $responses[$key]['Time Travel'] = $this->checkTimeTravel($parameters);
             $responses[$key]['NLX'] = $this->checkNLX($parameters);
             //var_dump($contentTypes['schema']);
             $responses[$key]['schema'] = $contentTypes['schema'];
