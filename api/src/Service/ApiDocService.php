@@ -165,6 +165,67 @@ class ApiDocService
         }
         return $response;
     }
+
+    public function checkNLX(array $parameters):array
+    {
+        $response = [
+            //Headers that should be present
+            'Expected headers'=>[
+            'X-NLX-Logrecord-ID'=>'warning',
+            'X-NLX-Request-Process-Id'=>'warning',
+            'X-NLX-Request-Data-Elements'=>'warning',
+            'X-NLX-Request-Data-Subject'=>'warning',
+                ],
+            //Headers that should not be present
+            'Unexpected headers'=>[
+            'X-NLX-Requester-User-Id'=>'ok',
+            'X-NLX-Request-Application-Id'=>'ok',
+            'X-NLX-Request-Subject-Identifier'=>'ok',
+            'X-NLX-Requester-Claims'=>'ok',
+            'X-NLX-Request-User'=>'ok',
+                ],
+            ];
+
+        foreach($parameters as $parameter){
+            switch($parameter['name']){
+                case 'X-NLX-Logrecord-ID':
+                    if($parameter['in']=='header')
+                        $response['Expected headers']['X-NLX-Logrecord-ID'] = 'ok';
+                    break;
+                case 'X-NLX-Request-Process-Id':
+                    if($parameter['in']=='header')
+                        $response['Expected headers']['X-NLX-Request-Process-Id'] = 'ok';
+                    break;
+                case 'X-NLX-Request-Data-Elements':
+                    if($parameter['in']=='header')
+                        $response['Expected headers']['X-NLX-Request-Data-Elements'] = 'ok';
+                    break;
+                case 'X-NLX-Request-Data-Subject':
+                    if($parameter['in']=='header')
+                        $response['Expected headers']['X-NLX-Request-Data-Subject'] = 'ok';
+                    break;
+                case 'X-NLX-Requester-User-Id':
+                    $response['Unexpected headers']['X-NLX-Requester-User-Id'] = 'warning';
+                    break;
+                case 'X-NLX-Request-Application-Id':
+                    $response['Unexpected headers']['X-NLX-Request-Application-Id'] = 'warning';
+                    break;
+                case 'X-NLX-Request-Subject-Identifier':
+                    $response['Unexpected headers']['X-NLX-Request-Subject-Identifier'] = 'warning';
+                    break;
+                case 'X-NLX-Requester-Claims':
+                    $response['Unexpected headers']['X-NLX-Requester-Claims'] = 'warning';
+                    break;
+                case 'X-NLX-Request-User':
+                    $response['Unexpected headers']['X-NLX-Request-User'] = 'warning';
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return $response;
+    }
     public function assessDocumentation(array $oas): array
     {
         $responses = [];
@@ -188,6 +249,7 @@ class ApiDocService
             $responses[$key]['API-32: Searching'] = $this->checkParametersForSort($parameters);
             $responses[$key]['API-42: JSON Pagination'] = $contentTypes['API-42'];
             $responses[$key]['API-48: Leave off trailing slashes'] = $this->checkEndpoint($key);
+            $responses[$key]['NLX'] = $this->checkNLX($parameters);
             //var_dump($contentTypes['schema']);
             $responses[$key]['schema'] = $contentTypes['schema'];
             $responses[$key]['properties'] = $this->checkSchema($oas['components']['schemas'][$contentTypes['schema']]);
