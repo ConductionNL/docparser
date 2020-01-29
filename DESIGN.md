@@ -42,17 +42,17 @@ This version of the document is based on the proposed version of the NL API stra
 - API-29: Support JSON-encoded POST, PUT, and PATCH payloads
     - This is tested implicitly by testing API-22
         - Level: 2
+- API-31: Use the query parameter `sorteer` to sort
+    -   We check if the parameter `sorteer` or `sort` is accepted
+        - Level: 2
+- API-32: Use the query parameter `zoek` for full-text search
+    -   We check if the parameter `zoek` or `search` is accepted
+        - Level: 2
 - API-42: Use JSON+HAL with media type `application/hal+json` for pagination
     - We check if the content type `application/hal+json` is available for response content
         - Level: 2
 - API-45: Provide rate limiting information
     - We check if the headers `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, `X-Rate-Limit-Reset` headers are defined for response content. This also implicitly checks API-44: Apply rate limiting
-        - Level: 2
-- API-46: Use default error handling
-    - We check if not HTTP statuses outside the regular 200, 300, 400 or 500 ranges are supported
-        - Level: 2
-- API-47: Use the required HTTP status codes
-    - We check if the HTTP status codes 200, 201, 204, 304, 400, 401,403, 404, 405, 406, 409, 410, 415, 422, 429 500 an 503 are supported.
         - Level: 2
 - API-48: Leave off trailing slashes from API endpoints
     - We check the endpoints for trailing slashes
@@ -89,9 +89,13 @@ See also our [Roadmap](ROADMAP.md)
     -   We check if the API can return `Warning`-headers
         - Level: 2
 - API-30: Use query parameters corresponding to the queryable fields
-- API-31: Use the query parameter `sorteer` to sort
-- API-32: Use the query parameter `zoek` for full-text search
 - API-43: Apply caching to improve performance
+- API-46: Use default error handling
+    - We check if not HTTP statuses outside the regular 200, 300, 400 or 500 ranges are supported
+        - Level: 2
+- API-47: Use the required HTTP status codes
+    - We check if the HTTP status codes 200, 201, 204, 304, 400, 401,403, 404, 405, 406, 409, 410, 415, 422, 429 500 an 503 are supported.
+        - Level: 2
 
 
 ## Design rules we can not check
