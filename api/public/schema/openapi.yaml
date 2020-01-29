@@ -702,25 +702,18 @@ components:
       properties:
         id:
           readOnly: true
-          description: 'The UUID identifier of this resource'
-          externalDocs:
-            url: 'http://schema.org/identifier'
-          type: string
+          type: integer
         docs:
-          description: 'API docs of an API'
           type: string
         url:
-          description: 'The URL of an API'
           type: string
     ApiDoc-write:
       type: object
       description: ''
       properties:
         docs:
-          description: 'API docs of an API'
           type: string
         url:
-          description: 'The URL of an API'
           type: string
     'ApiDoc:jsonld-read':
       type: object
@@ -737,15 +730,10 @@ components:
           type: string
         id:
           readOnly: true
-          description: 'The UUID identifier of this resource'
-          externalDocs:
-            url: 'http://schema.org/identifier'
-          type: string
+          type: integer
         docs:
-          description: 'API docs of an API'
           type: string
         url:
-          description: 'The URL of an API'
           type: string
     'ApiDoc:jsonld-write':
       type: object
@@ -761,34 +749,20 @@ components:
           readOnly: true
           type: string
         docs:
-          description: 'API docs of an API'
           type: string
         url:
-          description: 'The URL of an API'
           type: string
 definitions:
   ApiDoc-read:
     properties:
-      id:
-        description: 'The UUID identifier of this resource'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      docs:
-        description: 'API docs of an API'
-        type: string
-      url:
-        description: 'The URL of an API'
-        type: string
+      id: []
+      docs: []
+      url: []
     required: []
   ApiDoc-write:
     properties:
-      docs:
-        description: 'API docs of an API'
-        type: string
-      url:
-        description: 'The URL of an API'
-        type: string
+      docs: []
+      url: []
     required: []
 tags:
   -
