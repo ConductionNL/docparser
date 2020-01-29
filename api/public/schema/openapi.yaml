@@ -699,9 +699,29 @@ components:
     ApiDoc-read:
       type: object
       description: ''
+      properties:
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this resource'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+        docs:
+          description: 'API docs of an API'
+          type: string
+        url:
+          description: 'The URL of an API'
+          type: string
     ApiDoc-write:
       type: object
       description: ''
+      properties:
+        docs:
+          description: 'API docs of an API'
+          type: string
+        url:
+          description: 'The URL of an API'
+          type: string
     'ApiDoc:jsonld-read':
       type: object
       description: ''
@@ -714,6 +734,18 @@ components:
           type: string
         '@type':
           readOnly: true
+          type: string
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this resource'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+        docs:
+          description: 'API docs of an API'
+          type: string
+        url:
+          description: 'The URL of an API'
           type: string
     'ApiDoc:jsonld-write':
       type: object
@@ -728,7 +760,36 @@ components:
         '@type':
           readOnly: true
           type: string
-definitions: []
+        docs:
+          description: 'API docs of an API'
+          type: string
+        url:
+          description: 'The URL of an API'
+          type: string
+definitions:
+  ApiDoc-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this resource'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      docs:
+        description: 'API docs of an API'
+        type: string
+      url:
+        description: 'The URL of an API'
+        type: string
+    required: []
+  ApiDoc-write:
+    properties:
+      docs:
+        description: 'API docs of an API'
+        type: string
+      url:
+        description: 'The URL of an API'
+        type: string
+    required: []
 tags:
   -
     name: ApiDoc
@@ -741,12 +802,16 @@ securityDefinitions:
     type: oauth2
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
-    scopes: []
+    scopes:
+      read: 'read right to the ApiDoc resource'
+      write: 'write right to the ApiDoc resource'
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
-    scopes: []
+    scopes:
+      read: 'read right to the ApiDoc resource'
+      write: 'write right to the ApiDoc resource'
 host: irc.zaakonline.nl
 servers:
   -
