@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92089c82-d91e-45b0-a4eb-32fdfd03bfef" name="Default Changelist" comment="(semi) definitive fix for rollout issue">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/test.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DESIGN.md" beforeDir="false" afterPath="$PROJECT_DIR$/DESIGN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ROADMAP.md" beforeDir="false" afterPath="$PROJECT_DIR$/ROADMAP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/public/schema/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/openapi.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/Entity/ApiDoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/ApiDoc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/Service/ApiDocService.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Service/ApiDocService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +32,7 @@
       </set>
     </option>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP7.3">
     <include_path>
       <path value="$PROJECT_DIR$/api/vendor/symfony/contracts" />
       <path value="$PROJECT_DIR$/api/vendor/symfony/console" />
@@ -142,12 +147,19 @@
       <path value="$PROJECT_DIR$/api/vendor/symfony/asset" />
       <path value="$PROJECT_DIR$/api/vendor/symfony/config" />
       <path value="$PROJECT_DIR$/api/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/knplabs/knp-markdown-bundle" />
+      <path value="$PROJECT_DIR$/api/vendor/michelf/php-markdown" />
+      <path value="$PROJECT_DIR$/api/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/rst-parser" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TbQklh1l4KcnpTiFkL5CMaM8Vy" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -174,6 +186,11 @@
       <workItem from="1573726462409" duration="6345000" />
       <workItem from="1574770780191" duration="4500000" />
       <workItem from="1575443613282" duration="255000" />
+      <workItem from="1579853680618" duration="22939000" />
+      <workItem from="1579886061759" duration="5066000" />
+      <workItem from="1580106561526" duration="2755000" />
+      <workItem from="1580199472306" duration="3220000" />
+      <workItem from="1580286114647" duration="3936000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed language errors in Installation.md">
       <created>1573726496674</created>
