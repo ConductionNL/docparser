@@ -25,7 +25,7 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
  *     		"post",
  *          "post_parse"={
  *     			"method"="POST",
- *     			"path"="/apidocs/parse",
+ *     			"path"="/api_docs/parse",
  *     			"swagger_context" = {
  *     				"summary"="Parse an OAS document",
  *     				"description"="Parse an OAS document"

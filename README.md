@@ -17,7 +17,7 @@ The component contains a docker-compose file that will run the containers needed
 
 Usage
 -------
-Once running, OpenAPI specifications are send to `/apidocs/parser` with a POST request containing a content-type header corresponding to your OpenAPI specification
+Once running, OpenAPI specifications are send to `/api_docs/parser` with a POST request containing a content-type header corresponding to your OpenAPI specification
 and the OpenAPI specification as its body.
 
 Features

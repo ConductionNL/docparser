@@ -252,6 +252,107 @@ paths:
           name: X-NLX-Audit-Clarification
           description: 'A clarification as to why a request has been made  (doelbinding)'
           in: header
+  /api_docs/parse:
+    post:
+      tags:
+        - ApiDoc
+      operationId: post_parseApiDocCollection
+      summary: 'Creates a ApiDoc resource.'
+      responses:
+        201:
+          description: 'ApiDoc resource created'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc:jsonld-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/ApiDoc-read'
+          links:
+            GetApiDocItem:
+              parameters:
+                id: '$response.body#/id'
+              operationId: getApiDocItem
+              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /api_docs/{id}`.'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/ApiDoc:jsonld-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/ApiDoc-write'
+        description: 'The new ApiDoc resource'
+      parameters:
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
   '/api_docs/{id}':
     get:
       tags:
@@ -593,107 +694,6 @@ paths:
             schema:
               $ref: '#/components/schemas/ApiDoc-write'
         description: 'The updated ApiDoc resource'
-  /apidocs/parse:
-    post:
-      tags:
-        - ApiDoc
-      operationId: post_parseApiDocCollection
-      summary: 'Creates a ApiDoc resource.'
-      responses:
-        201:
-          description: 'ApiDoc resource created'
-          content:
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/ApiDoc-read'
-            application/ld+json:
-              schema:
-                $ref: '#/components/schemas/ApiDoc:jsonld-read'
-            application/vnd.api+json:
-              schema:
-                $ref: '#/components/schemas/ApiDoc-read'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiDoc-read'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ApiDoc-read'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/ApiDoc-read'
-            text/csv:
-              schema:
-                $ref: '#/components/schemas/ApiDoc-read'
-            text/html:
-              schema:
-                $ref: '#/components/schemas/ApiDoc-read'
-          links:
-            GetApiDocItem:
-              parameters:
-                id: '$response.body#/id'
-              operationId: getApiDocItem
-              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /api_docs/{id}`.'
-        400:
-          description: 'Invalid input'
-        404:
-          description: 'Resource not found'
-      requestBody:
-        content:
-          application/hal+json:
-            schema:
-              $ref: '#/components/schemas/ApiDoc-write'
-          application/ld+json:
-            schema:
-              $ref: '#/components/schemas/ApiDoc:jsonld-write'
-          application/vnd.api+json:
-            schema:
-              $ref: '#/components/schemas/ApiDoc-write'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApiDoc-write'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/ApiDoc-write'
-          application/x-yaml:
-            schema:
-              $ref: '#/components/schemas/ApiDoc-write'
-          text/csv:
-            schema:
-              $ref: '#/components/schemas/ApiDoc-write'
-          text/html:
-            schema:
-              $ref: '#/components/schemas/ApiDoc-write'
-        description: 'The new ApiDoc resource'
-      parameters:
-        -
-          name: Authorization
-          description: 'The JWT of the entity performing the request'
-          in: header
-        -
-          name: API-Version
-          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
-          example: 1.0.1
-          in: header
-        -
-          name: X-NLX-Logrecord-ID
-          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
-          in: header
-        -
-          name: X-NLX-Request-Process-Id
-          description: 'A process id for purpose registration (doelbinding)'
-          in: header
-        -
-          name: X-NLX-Request-Data-Elements
-          description: 'A list of requested data elements'
-          in: header
-        -
-          name: X-NLX-Request-Data-Subject
-          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
-          in: header
-        -
-          name: X-NLX-Audit-Clarification
-          description: 'A clarification as to why a request has been made  (doelbinding)'
-          in: header
 components:
   schemas:
     ApiDoc-read:
@@ -702,7 +702,10 @@ components:
       properties:
         id:
           readOnly: true
-          type: integer
+          description: 'The UUID identifier of this resource'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
         docs:
           type: string
         url:
@@ -730,7 +733,10 @@ components:
           type: string
         id:
           readOnly: true
-          type: integer
+          description: 'The UUID identifier of this resource'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
         docs:
           type: string
         url:
@@ -755,7 +761,11 @@ components:
 definitions:
   ApiDoc-read:
     properties:
-      id: []
+      id:
+        description: 'The UUID identifier of this resource'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
       docs: []
       url: []
     required: []
