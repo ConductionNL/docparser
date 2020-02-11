@@ -30,6 +30,14 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
  *     				"summary"="Parse an OAS document",
  *     				"description"="Parse an OAS document"
  *     			}
+ *     		},
+ *          "post_parseurl"={
+ *     			"method"="POST",
+ *     			"path"="/api_docs/parse_url",
+ *     			"swagger_context" = {
+ *     				"summary"="Parse an OAS document by URL",
+ *     				"description"="Parse an OAS document by URL"
+ *     			}
  *     		}
  *     }
  * )

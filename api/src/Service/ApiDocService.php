@@ -130,7 +130,7 @@ class ApiDocService
             foreach ($path as $search) {
                 $bag = $bag[$search];
             }
-            if($value != null && $bag['name'] == $value && $bag['in'] == $in)
+            if($value != null && substr($bag['name'],0,strlen($value)) === $value && $bag['in'] == $in)
                 return 'ok';
             elseif($values == null && !empty($values) && in_array($bag['name'], $values))
                 return 'ok';
@@ -207,10 +207,10 @@ class ApiDocService
     {
         //var_dump($parameters);
         foreach ($parameters as $parameter) {
-            if (key_exists('name', $parameter) && ($parameter['name'] == 'sort' || $parameter['name'] == 'sorteer') && $parameter['in'] == 'query')
+            if (key_exists('name', $parameter) && (substr($parameter['name'],0,strlen('order')) === 'order' || substr($parameter['name'],0,strlen('sorteer')) === 'sorteer') && $parameter['in'] == 'query')
                 return 'ok';
             elseif (!key_exists('name', $parameter)) {
-                switch ($this->checkReferencedParameterForValue($parameter, $oas, null, ['sort', 'sorteer'])) {
+                switch ($this->checkReferencedParameterForValue($parameter, $oas, null, ['order', 'sorteer'])) {
                     case 'ok':
                         return 'ok';
                         break;
