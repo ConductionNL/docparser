@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Service;
-
 
 class ApiDocService
 {
@@ -12,82 +10,90 @@ class ApiDocService
         foreach ($array as $arr) {
             $response = array_merge($response, $arr);
         }
+
         return $response;
     }
 
     private function getPathParameters(array $methods)
     {
         $response = [];
-        foreach ($methods as $key=>$method){
-            if($key != 'parameters' && array_key_exists('parameters', $method))
+        foreach ($methods as $key=>$method) {
+            if ($key != 'parameters' && array_key_exists('parameters', $method)) {
                 array_push($response, $method['parameters']);
+            }
         }
+
         return $this->array_flatten($response);
     }
 
-    private function getSchema($path, $oas):?array{
-        if(key_exists('post', $path)){
+    private function getSchema($path, $oas): ?array
+    {
+        if (array_key_exists('post', $path)) {
             $requestBody = $path['post']['requestBody'];
         }
-        if(!isset($requestBody)) {
+        if (!isset($requestBody)) {
             $statuses = $path[array_key_first($path)]['responses'];
             foreach ($statuses as $key=>$status) {
                 //echo $key;
-                if(key_exists('content', $status)) {
+                if (array_key_exists('content', $status)) {
                     $keys = array_keys($status['content']);
-                    if (!empty($status['content']) && key_exists('schema', $status['content'][$keys[0]])) {
-
-                        if (key_exists('type', $status['content'][$keys[0]]['schema']))
+                    if (!empty($status['content']) && array_key_exists('schema', $status['content'][$keys[0]])) {
+                        if (array_key_exists('type', $status['content'][$keys[0]]['schema'])) {
                             return $status['content'][$keys[0]]['schema'];
-
-                        elseif (key_exists('$ref', $status['content'][$keys[0]]['schema']))
+                        } elseif (array_key_exists('$ref', $status['content'][$keys[0]]['schema'])) {
                             $ref = explode('/', $status['content'][$keys[0]]['schema']['$ref']);
-                        else {
+                        } else {
                             $ref = explode('/', $status['content'][$keys[0]]['schema']['items']['$ref']);
                         }
                     }
                 }
             }
-        }
-        else{
-            if(array_key_exists('content', $requestBody)) {
+        } else {
+            if (array_key_exists('content', $requestBody)) {
                 $keys = array_keys($requestBody['content']);
-                if (!empty($requestBody['content']) && key_exists('schema', $requestBody['content'][$keys[0]])) {
-                    if (key_exists('type', $requestBody['content'][$keys[0]]['schema']))
+                if (!empty($requestBody['content']) && array_key_exists('schema', $requestBody['content'][$keys[0]])) {
+                    if (array_key_exists('type', $requestBody['content'][$keys[0]]['schema'])) {
                         return $requestBody['content'][$keys[0]]['schema'];
-                    else
+                    } else {
                         $ref = explode('/', $requestBody['content'][$keys[0]]['schema']['$ref']);
+                    }
                 }
             }
         }
-        if(!isset($ref))
+        if (!isset($ref)) {
             return null;
-        if ($ref[0] != '#')
+        }
+        if ($ref[0] != '#') {
             return null;
+        }
         array_shift($ref);
         $bag = $oas;
         foreach ($ref as $search) {
             $bag = $bag[$search];
         }
+
         return $bag;
     }
+
     private function getContentTypesPerStatus($statuses)
     {
         $response = ['API-22' => 'ok', 'API-24' => 'ok', 'API-42' => 'ok'];
         foreach ($statuses as $status) {
-
-            if (key_exists('content', $status)) {
+            if (array_key_exists('content', $status)) {
                 //var_dump(array_keys($status['content'])[0]);
                 $keys = array_keys($status['content']);
-                if (strpos($keys[0], 'json') === false)
+                if (strpos($keys[0], 'json') === false) {
                     $response['API-22'] = 'warning';
-                if (count($keys) <= 1)
+                }
+                if (count($keys) <= 1) {
                     $response['API-24'] = 'warning';
-                if (!in_array('application/hal+json', $keys))
+                }
+                if (!in_array('application/hal+json', $keys)) {
                     $response['API-42'] = 'warning';
-
+                }
             }
         }
+
         return $response;
     }
 
@@ -96,32 +102,39 @@ class ApiDocService
         $response = ['API-22' => 'ok', 'API-24' => 'ok', 'API-42' => 'ok', 'schema'=>''];
         foreach ($path as $method) {
             if (
-                key_exists('requestBody', $method) &&
-                key_exists('content', $method['requestBody'])) {
+                array_key_exists('requestBody', $method) &&
+                array_key_exists('content', $method['requestBody'])) {
                 $keys = array_keys($method['requestBody']['content']);
-                if (strpos($keys[0], 'json') === false)
+                if (strpos($keys[0], 'json') === false) {
                     $response['API-22'] = 'warning';
-                if (count($keys) <= 1)
+                }
+                if (count($keys) <= 1) {
                     $response['API-24'] = 'warning';
-
+                }
             }
-            if (key_exists('responses', $method)) {
+            if (array_key_exists('responses', $method)) {
                 $responseResponse = $this->getContentTypesPerStatus($method['responses']);
-                if ($responseResponse['API-22'] != 'ok')
+                if ($responseResponse['API-22'] != 'ok') {
                     $response['API-22'] = $responseResponse['API-22'];
-                if ($responseResponse['API-24'] != 'ok')
+                }
+                if ($responseResponse['API-24'] != 'ok') {
                     $response['API-24'] = $responseResponse['API-24'];
-                if ($responseResponse['API-42'] != 'ok')
+                }
+                if ($responseResponse['API-42'] != 'ok') {
                     $response['API-42'] = $responseResponse['API-42'];
-                if(key_exists('schema', $responseResponse))
+                }
+                if (array_key_exists('schema', $responseResponse)) {
                     $response['schema'] = $responseResponse['schema'];
+                }
             }
         }
+
         return $response;
     }
+
     private function checkReferencedParameterForValue($parameter, $oas, ?string $value, ?array $values, string $in = 'query')
     {
-        if(key_exists('$ref', $parameter) && substr($parameter['$ref'], 0,1) == '#') {
+        if (array_key_exists('$ref', $parameter) && substr($parameter['$ref'], 0, 1) == '#') {
             $path = explode('/', $parameter['$ref']);
             //var_dump($path);
             array_shift($path);
@@ -130,21 +143,24 @@ class ApiDocService
             foreach ($path as $search) {
                 $bag = $bag[$search];
             }
-            if($value != null && $bag['name'] == $value && $bag['in'] == $in)
+            if ($value != null && $bag['name'] == $value && $bag['in'] == $in) {
                 return 'ok';
-            elseif($values == null && !empty($values) && in_array($bag['name'], $values))
+            } elseif ($values == null && !empty($values) && in_array($bag['name'], $values)) {
                 return 'ok';
-        }
-        elseif (key_exists('$ref', $parameter) && substr($parameter['$ref'], 0,1) != '#')
+            }
+        } elseif (array_key_exists('$ref', $parameter) && substr($parameter['$ref'], 0, 1) != '#') {
             return 'warning';
+        }
+
         return 'danger';
     }
+
     private function checkAuthorizationHeader(array $parameters, $oas)
     {
         foreach ($parameters as $parameter) {
-            if (key_exists('name', $parameter) && ($parameter['name'] == 'fields[]' && $parameter['in'] == 'header'))
+            if (array_key_exists('name', $parameter) && ($parameter['name'] == 'fields[]' && $parameter['in'] == 'header')) {
                 return 'ok';
-            elseif (!key_exists('name', $parameter)) {
+            } elseif (!array_key_exists('name', $parameter)) {
                 switch ($this->checkReferencedParameterForValue($parameter, $oas, 'fields[]', null, 'header')) {
                     case 'ok':
                         return 'ok';
@@ -154,19 +170,21 @@ class ApiDocService
                         break;
                 }
             }
-
         }
-        if(!isset($response))
+        if (!isset($response)) {
             $response = 'warning';
+        }
+
         return $response;
     }
+
     private function checkParametersForFields(array $parameters, $oas)
     {
         //var_dump($parameters);
         foreach ($parameters as $parameter) {
-            if (key_exists('name', $parameter) && ($parameter['name'] == 'fields[]' && $parameter['in'] == 'query'))
+            if (array_key_exists('name', $parameter) && ($parameter['name'] == 'fields[]' && $parameter['in'] == 'query')) {
                 return 'ok';
-            elseif (!key_exists('name', $parameter)) {
+            } elseif (!array_key_exists('name', $parameter)) {
                 switch ($this->checkReferencedParameterForValue($parameter, $oas, 'fields[]', null)) {
                     case 'ok':
                         return 'ok';
@@ -176,19 +194,21 @@ class ApiDocService
                         break;
                 }
             }
-
         }
-        if(!isset($response))
+        if (!isset($response)) {
             $response = 'danger';
+        }
+
         return $response;
     }
+
     private function checkParametersForSearch(array $parameters, $oas)
     {
         //var_dump($parameters);
         foreach ($parameters as $parameter) {
-            if (key_exists('name', $parameter) && ($parameter['name'] == 'search' || $parameter['name'] == 'zoek') && $parameter['in'] == 'query')
+            if (array_key_exists('name', $parameter) && ($parameter['name'] == 'search' || $parameter['name'] == 'zoek') && $parameter['in'] == 'query') {
                 return 'ok';
-            elseif (!key_exists('name', $parameter)) {
+            } elseif (!array_key_exists('name', $parameter)) {
                 switch ($this->checkReferencedParameterForValue($parameter, $oas, null, ['zoek', 'search'])) {
                     case 'ok':
                         return 'ok';
@@ -199,17 +219,20 @@ class ApiDocService
                 }
             }
         }
-        if(!isset($response))
+        if (!isset($response)) {
             $response = 'warning';
+        }
+
         return $response;
     }
+
     private function checkParametersForSort(array $parameters, $oas)
     {
         //var_dump($parameters);
         foreach ($parameters as $parameter) {
-            if (key_exists('name', $parameter) && ($parameter['name'] == 'sort' || $parameter['name'] == 'sorteer') && $parameter['in'] == 'query')
+            if (array_key_exists('name', $parameter) && ($parameter['name'] == 'sort' || $parameter['name'] == 'sorteer') && $parameter['in'] == 'query') {
                 return 'ok';
-            elseif (!key_exists('name', $parameter)) {
+            } elseif (!array_key_exists('name', $parameter)) {
                 switch ($this->checkReferencedParameterForValue($parameter, $oas, null, ['sort', 'sorteer'])) {
                     case 'ok':
                         return 'ok';
@@ -220,8 +243,10 @@ class ApiDocService
                 }
             }
         }
-        if(!isset($response))
+        if (!isset($response)) {
             $response = 'warning';
+        }
+
         return $response;
     }
 
@@ -239,78 +264,95 @@ class ApiDocService
                 default:
                     return 'danger';
             }
+
             return 'ok';
         }
     }
 
     private function checkOpenApiVersion(array $oas)
     {
-        if ((int)substr($oas['openapi'], 0, 1) >= 3)
+        if ((int) substr($oas['openapi'], 0, 1) >= 3) {
             return 'ok';
+        }
+
         return 'danger';
     }
+
     private function checkPropertyName(string $name)
     {
-        if(ctype_alpha($name) && !ctype_upper($name[0]))
+        if (ctype_alpha($name) && !ctype_upper($name[0])) {
             return 'ok';
+        }
+
         return 'warning';
     }
-    private function checkEndpoint($endpoint){
-        if(substr($endpoint, -1) == '/')
+
+    private function checkEndpoint($endpoint)
+    {
+        if (substr($endpoint, -1) == '/') {
             return 'danger';
+        }
+
         return 'ok';
     }
+
     private function checkSchema(array $schema)
     {
-        if(key_exists('properties', $schema)) {
+        if (array_key_exists('properties', $schema)) {
             $response = [];
 
             foreach ($schema['properties'] as $key => $property) {
                 $response[$key]['API-26: camel case'] = $this->checkPropertyName($key);
             }
+
             return $response;
         }
+
         return 'ok';
     }
 
-    public function checkNLX(array $parameters, $oas):array
+    public function checkNLX(array $parameters, $oas): array
     {
         $response = [
             //Headers that should be present
-            'Expected headers'=>[
-            'X-NLX-Logrecord-ID'=>'warning',
-            'X-NLX-Request-Process-Id'=>'warning',
-            'X-NLX-Request-Data-Elements'=>'warning',
-            'X-NLX-Request-Data-Subject'=>'warning',
-                ],
+            'Expected headers'=> [
+                'X-NLX-Logrecord-ID'         => 'warning',
+                'X-NLX-Request-Process-Id'   => 'warning',
+                'X-NLX-Request-Data-Elements'=> 'warning',
+                'X-NLX-Request-Data-Subject' => 'warning',
+            ],
             //Headers that should not be present
-            'Unexpected headers'=>[
-            'X-NLX-Requester-User-Id'=>'ok',
-            'X-NLX-Request-Application-Id'=>'ok',
-            'X-NLX-Request-Subject-Identifier'=>'ok',
-            'X-NLX-Requester-Claims'=>'ok',
-            'X-NLX-Request-User'=>'ok',
-                ],
-            ];
+            'Unexpected headers'=> [
+                'X-NLX-Requester-User-Id'         => 'ok',
+                'X-NLX-Request-Application-Id'    => 'ok',
+                'X-NLX-Request-Subject-Identifier'=> 'ok',
+                'X-NLX-Requester-Claims'          => 'ok',
+                'X-NLX-Request-User'              => 'ok',
+            ],
+        ];
 
-        foreach($parameters as $parameter){
-            if(key_exists('name', $parameter)) {
+        foreach ($parameters as $parameter) {
+            if (array_key_exists('name', $parameter)) {
                 switch ($parameter['name']) {
                     case 'X-NLX-Logrecord-ID':
-                        if ($parameter['in'] == 'header')
+                        if ($parameter['in'] == 'header') {
                             $response['Expected headers']['X-NLX-Logrecord-ID'] = 'ok';
+                        }
                         break;
                     case 'X-NLX-Request-Process-Id':
-                        if ($parameter['in'] == 'header')
+                        if ($parameter['in'] == 'header') {
                             $response['Expected headers']['X-NLX-Request-Process-Id'] = 'ok';
+                        }
                         break;
                     case 'X-NLX-Request-Data-Elements':
-                        if ($parameter['in'] == 'header')
+                        if ($parameter['in'] == 'header') {
                             $response['Expected headers']['X-NLX-Request-Data-Elements'] = 'ok';
+                        }
                         break;
                     case 'X-NLX-Request-Data-Subject':
-                        if ($parameter['in'] == 'header')
+                        if ($parameter['in'] == 'header') {
                             $response['Expected headers']['X-NLX-Request-Data-Subject'] = 'ok';
+                        }
                         break;
                     case 'X-NLX-Requester-User-Id':
                         $response['Unexpected headers']['X-NLX-Requester-User-Id'] = 'warning';
@@ -330,68 +372,76 @@ class ApiDocService
                     default:
                         break;
                 }
-            }
-            elseif(key_exists('$ref', $parameter)){
-                foreach($response['Expected headers'] as $key=>$value) {
+            } elseif (array_key_exists('$ref', $parameter)) {
+                foreach ($response['Expected headers'] as $key=> $value) {
                     $searchResponse = $this->checkReferencedParameterForValue($parameter, $oas, $key, null, 'header');
-                    if($searchResponse == 'danger')
+                    if ($searchResponse == 'danger') {
                         $response['Expected headers'][$key] = 'warning';
-                    else
+                    } else {
                         $response['Expected headers'][$key] = $searchResponse;
+                    }
                 }
-                foreach($response['Unexpected headers'] as $key=>$value) {
+                foreach ($response['Unexpected headers'] as $key=>$value) {
                     $searchResponse = $this->checkReferencedParameterForValue($parameter, $oas, $key, null, 'header');
-                    if($searchResponse == 'danger')
+                    if ($searchResponse == 'danger') {
                         $response['Unexpected headers'][$key] = 'ok';
-                    elseif($searchResponse == 'ok')
+                    } elseif ($searchResponse == 'ok') {
                         $response['Unexpected headers'][$key] = 'warning';
-                    else
+                    } else {
                         $response['Unexpected headers'][$key] = $searchResponse;
+                    }
                 }
             }
         }
 
         return $response;
     }
+
     public function checkTimeTravel(array $parameters, $oas)
     {
         $response = [
-            'geldigOp'=>'warning',
-            'inwerkingOp'=>'warning',
-            'beschikbaarOp'=>'warning',
-            ];
+            'geldigOp'     => 'warning',
+            'inwerkingOp'  => 'warning',
+            'beschikbaarOp'=> 'warning',
+        ];
 
-        foreach($parameters as $parameter) {
-            if (key_exists('name', $parameter)) {
-                if (($parameter['name'] == 'geldigOp' || $parameter['name'] == 'validOn'))
+        foreach ($parameters as $parameter) {
+            if (array_key_exists('name', $parameter)) {
+                if (($parameter['name'] == 'geldigOp' || $parameter['name'] == 'validOn')) {
                     $response['geldigOp'] = 'ok';
+                }
 
-                if ($parameter['name'] == 'inWerkingOp' || $parameter['name'] == 'validFrom')
+                if ($parameter['name'] == 'inWerkingOp' || $parameter['name'] == 'validFrom') {
                     $response['inwerkingOp'] = 'ok';
-                if ($parameter['name'] == 'beschikbaarOp' || $parameter['name'] == 'availableFrom')
+                }
+                if ($parameter['name'] == 'beschikbaarOp' || $parameter['name'] == 'availableFrom') {
                     $response['beschikbaarOp'] = 'ok';
-            }
-            elseif(!key_exists('name', $parameter) && key_exists('$ref', $parameter)) {
+                }
+            } elseif (!array_key_exists('name', $parameter) && array_key_exists('$ref', $parameter)) {
                 $searchResponse = $this->checkReferencedParameterForValue($parameter, $oas, null, ['geldigOp', 'validOn']);
-                if($searchResponse != 'danger')
+                if ($searchResponse != 'danger') {
                     $response['geldigOp'] = $searchResponse;
-                else
+                } else {
                     $response['geldigOp'] = 'warning';
+                }
                 $searchResponse = $this->checkReferencedParameterForValue($parameter, $oas, null, ['inwerkingOp', 'validFrom']);
-                if($searchResponse != 'danger')
+                if ($searchResponse != 'danger') {
                     $response['inwerkingOp'] = $searchResponse;
-                else
+                } else {
                     $response['inwerkingOp'] = 'warning';
+                }
                 $searchResponse = $this->checkReferencedParameterForValue($parameter, $oas, null, ['beschikbaarOp', 'availableFrom']);
-                if($searchResponse != 'danger')
+                if ($searchResponse != 'danger') {
                     $response['beschikbaarOp'] = $searchResponse;
-                else
+                } else {
                     $response['beschikbaarOp'] = 'warning';
+                }
             }
         }
 
         return $response;
     }
+
     public function assessDocumentation(array $oas): array
     {
         $responses = [];
@@ -402,7 +452,7 @@ class ApiDocService
 
         //var_dump($oas['paths']);
         foreach ($oas['paths'] as $key => $path) {
-           // var_dump($key);
+            // var_dump($key);
             $parameters = $this->getPathParameters($path);
             $responses[$key]['API-03: Default HTTP-methods'] = $this->checkDefaultMethods($path);
             $responses[$key]['API-09: Custom representation'] = $this->checkParametersForFields($parameters, $oas);
@@ -420,10 +470,11 @@ class ApiDocService
             //var_dump($contentTypes['schema']);
             $schema = $this->getSchema($path, $oas);
             //var_dump($schema);
-            if($schema != null)
+            if ($schema != null) {
                 $responses[$key]['properties'] = $this->checkSchema($schema);
-
+            }
         }
+
         return $responses;
     }
 }
