@@ -2,7 +2,196 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92089c82-d91e-45b0-a4eb-32fdfd03bfef" name="Default Changelist" comment="(semi) definitive fix for rollout issue">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/helmInstall.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/helmUpgrade.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/DockerfileProto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/config/packages/translation.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/config/packages/twig_extensions.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/bootstrap-combined.no-icons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/jquery.iviewer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/phpdocumentor-clean-icons/Read Me.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.dev.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/phpdocumentor-clean-icons/lte-ie7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/phpdocumentor-clean-icons/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/prism.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/css/template.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/files/.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/font/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/font/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/font/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/font/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/font/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/graphs/class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/apple-touch-icon-114x114.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/apple-touch-icon-72x72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/custom-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/hierarchy-item.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/icon-class-13x13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/icon-class.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/icon-interface-13x13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/icon-interface.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/icon-trait-13x13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/icon-trait.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/iviewer/grab.cur" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/iviewer/hand.cur" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/iviewer/iviewer.rotate_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/iviewer/iviewer.rotate_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/iviewer/iviewer.zoom_fit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/iviewer/iviewer.zoom_in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/iviewer/iviewer.zoom_out.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/images/iviewer/iviewer.zoom_zero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/html5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/jquery-1.11.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/jquery.dotdotdot-1.5.9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/jquery.dotdotdot-1.5.9.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/jquery.iviewer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/jquery.iviewer.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/jquery.mousewheel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/jquery.smooth-scroll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/prism.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/js/ui/1.10.4/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/phpdoc-cache-0b/phpdoc-cache-file_a417395892b3c156ffd53b1457b5b16b.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/phpdoc-cache-0f/phpdoc-cache-file_7ec5880a59e6c5b6584e23881f59445c.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/phpdoc-cache-10/phpdoc-cache-file_ebd6f00a1d912f4148f1a53603c81557.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/phpdoc-cache-28/phpdoc-cache-file_1d14cd7b4510caf8fd63175a2ccb64c8.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/phpdoc-cache-2e/phpdoc-cache-settings.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/phpdoc-cache-92/phpdoc-cache-file_0ca664bf8edee00f05677d515d4d5901.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/phpdoc-cache-e1/phpdoc-cache-file_a54a48866e5bdf2866e287ccd8ca2e4b.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/phpdoc-cache-e9/phpdoc-cache-file_0f98140da97e7de1c4aef76c39bc8c6a.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/reports/deprecated.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/reports/errors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/docs/reports/markers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/helm/index.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/helm/pc-0.1.0.tgz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/bootstrap-combined.no-icons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/jquery.iviewer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/phpdocumentor-clean-icons/Read Me.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.dev.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/phpdocumentor-clean-icons/lte-ie7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/phpdocumentor-clean-icons/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/prism.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/css/template.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/files/.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/font/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/font/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/font/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/font/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/font/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/graphs/class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/apple-touch-icon-114x114.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/apple-touch-icon-72x72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/custom-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/hierarchy-item.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/icon-class-13x13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/icon-class.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/icon-interface-13x13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/icon-interface.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/icon-trait-13x13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/icon-trait.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/iviewer/grab.cur" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/iviewer/hand.cur" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/iviewer/iviewer.rotate_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/iviewer/iviewer.rotate_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/iviewer/iviewer.zoom_fit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/iviewer/iviewer.zoom_in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/iviewer/iviewer.zoom_out.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/images/iviewer/iviewer.zoom_zero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/html5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/jquery-1.11.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/jquery.dotdotdot-1.5.9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/jquery.dotdotdot-1.5.9.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/jquery.iviewer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/jquery.iviewer.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/jquery.mousewheel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/jquery.smooth-scroll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/prism.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/js/ui/1.10.4/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/phpdoc-cache-0b/phpdoc-cache-file_a417395892b3c156ffd53b1457b5b16b.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/phpdoc-cache-0f/phpdoc-cache-file_7ec5880a59e6c5b6584e23881f59445c.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/phpdoc-cache-10/phpdoc-cache-file_ebd6f00a1d912f4148f1a53603c81557.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/phpdoc-cache-28/phpdoc-cache-file_1d14cd7b4510caf8fd63175a2ccb64c8.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/phpdoc-cache-2e/phpdoc-cache-settings.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/phpdoc-cache-92/phpdoc-cache-file_0ca664bf8edee00f05677d515d4d5901.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/phpdoc-cache-e1/phpdoc-cache-file_a54a48866e5bdf2866e287ccd8ca2e4b.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/phpdoc-cache-e9/phpdoc-cache-file_0f98140da97e7de1c4aef76c39bc8c6a.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/reports/deprecated.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/reports/errors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/docs/reports/markers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/public/schema/readthedocs.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/Controller/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/translations/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/translations/messages.nl.xlf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/translations/messages.nl.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/translations/security.fr.xlf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/translations/security.nl.xlf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/translations/validators.fr.xlf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/translations/validators.nl.xlf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phpdoc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readthedocs.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/logo-conduction.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/logo-s-hertogenbosch.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/logo-utrecht.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/dockerimage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/dockerimage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INSTALLATION.md" beforeDir="false" afterPath="$PROJECT_DIR$/INSTALLATION.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ROADMAP.md" beforeDir="false" afterPath="$PROJECT_DIR$/ROADMAP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUTORIAL.md" beforeDir="false" afterPath="$PROJECT_DIR$/TUTORIAL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/api/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.env" beforeDir="false" afterPath="$PROJECT_DIR$/api/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/api/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/api/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/packages/api_platform.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/packages/common_ground.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/packages/common_ground.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/packages/doctrine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/docker/php/docker-entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/api/docker/php/docker-entrypoint.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/.helmignore" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/.helmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/Chart.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/Chart.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/api-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/api-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/api-loadbalancer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/api-loadbalancer.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/api-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/api-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/certificate.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/certificate.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/configmap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/configmap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/ingress.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/php-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/php-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/php-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/php-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/secrets.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/secrets.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/varnish-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/varnish-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/templates/varnish-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/templates/varnish-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/values.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/public/schema/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/openapi.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/api/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/templates/helm/Values.yaml.twig" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/helm/Values.yaml.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +199,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/api/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -148,7 +337,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../memo-component" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
@@ -370,9 +559,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="(semi) definitive fix for rollout issue" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="777" y="241" key="FileChooserDialogImpl" timestamp="1590499737718">
+    <state x="777" y="241" key="FileChooserDialogImpl" timestamp="1591688906781">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="777" y="241" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590499737718" />
+    <state x="777" y="241" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1591688906781" />
   </component>
 </project>
