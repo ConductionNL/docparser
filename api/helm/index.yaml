@@ -3,14 +3,14 @@ entries:
   dps:
   - apiVersion: v1
     appVersion: V.0.1
-    created: "2020-06-09T08:05:44.564658502Z"
+    created: "2020-06-09T09:39:47.061093286Z"
     description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
       interface beschikbaar.&#039;'
-    digest: d436051b6db233d8c1f94cc124a35824e14fc34a53c94dab5fa40ba76de5f905
+    digest: ec2cc3f7a6b77d5793cece0d325b98961b8d093b0ded204480237b09eaaf1795
     home: dps.zaakonline.nl
     icon: dps.zaakonline.nl
     name: dps
     urls:
     - dps-0.1.0.tgz
     version: 0.1.0
-generated: "2020-06-09T08:05:44.561058502Z"
+generated: "2020-06-09T09:39:46.927469228Z"
