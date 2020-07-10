@@ -3,7 +3,7 @@ entries:
   dps:
   - apiVersion: v1
     appVersion: V.0.1
-    created: "2020-06-18T10:44:10.936795004Z"
+    created: "2020-06-09T10:24:21.603720945Z"
     description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
       interface beschikbaar.&#039;'
     digest: 903a017928e6fe5eb55883e12a614b557eebc3feceacdebc1c9189a9f92f944b
@@ -13,4 +13,4 @@ entries:
     urls:
     - dps-0.1.0.tgz
     version: 0.1.0
-generated: "2020-06-18T10:44:10.932185904Z"
+generated: "2020-06-09T10:24:21.372292431Z"
