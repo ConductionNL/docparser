@@ -4,7 +4,7 @@ This document dives a little bit deeper into installing your component on a kube
 ## Setting up helm
 We first need to be sure the stable repository of helm and kubernetes is added. We do this using the following command:
 ```CLI
-$ helm repo list
+$ helm repo list 
 ```
 
 If in the output there is no repository 'stable' we need to add it:
