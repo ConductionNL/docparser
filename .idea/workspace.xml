@@ -2,15 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92089c82-d91e-45b0-a4eb-32fdfd03bfef" name="Default Changelist" comment="(semi) definitive fix for rollout issue">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESIGN.md" beforeDir="false" afterPath="$PROJECT_DIR$/DESIGN.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ROADMAP.md" beforeDir="false" afterPath="$PROJECT_DIR$/ROADMAP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/public/schema/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/openapi.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/Entity/ApiDoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/ApiDoc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/Service/ApiDocService.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Service/ApiDocService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.dockerignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/api/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/helm/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/index.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.dockerignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Welcome.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/config/entrypoint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/welcome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/h2-proxy/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/h2-proxy/conf.d/default.conf" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,19 +43,10 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/api/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\rjzon\Documents\Conduction\Proto-component-commonground\.idea" />
-      </set>
-    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP7.3">
     <include_path>
@@ -155,23 +171,15 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1TbQklh1l4KcnpTiFkL5CMaM8Vy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -191,6 +199,7 @@
       <workItem from="1580106561526" duration="2755000" />
       <workItem from="1580199472306" duration="3220000" />
       <workItem from="1580286114647" duration="3936000" />
+      <workItem from="1602588140278" duration="474000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed language errors in Installation.md">
       <created>1573726496674</created>
@@ -350,20 +359,19 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed language errors in Installation.md" />
