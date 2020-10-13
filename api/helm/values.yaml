@@ -4,8 +4,8 @@
 
 settings:
   registryBase: docker.io/conduction
-  projectName: pc
-  name: pc
+  projectName: dps
+  name: dps
   title: Proto component commonground
   version: V1.0
   majorVersion: v1
@@ -13,11 +13,11 @@ settings:
   description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.&#039;'
   type: component
   repro: https://github.com/ConductionNL/proto-component
-  demo: pc.zaakonline.nl
-  container: https://hub.docker.com/repository/docker/conduction/pc-php
-  domain: conduction.nl
-  subdomain: pc
-  subpath: pc
+  demo: dps.zaakonline.nl
+  container: https://hub.docker.com/repository/docker/conduction/dps-php
+  domain: zuid-drecht.nl
+  subdomain: dps
+  subpath: dps
   subpathRouting: true
   organisationName: Conduction
   email: info@conduction.nl

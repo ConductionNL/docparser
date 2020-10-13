@@ -3,7 +3,7 @@ entries:
   mercure:
   - apiVersion: v1
     appVersion: 0.6.0
-    created: "2020-10-13T11:28:03.1166617Z"
+    created: "2020-10-13T11:58:13.5594136Z"
     description: The Mercure hub allows to push data updates using the Mercure protocol
       to web browsers and other HTTP clients in a convenient, fast, reliable and battery-efficient
       way
@@ -26,7 +26,7 @@ entries:
   pc:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-10-13T11:28:03.1096366Z"
+    created: "2020-10-13T11:58:13.550552Z"
     description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
       interface beschikbaar.&#039;'
     digest: 2ccb90fd33c2a73b4448265ccae5bc3dc0c8daa5993ccaa4e8f2101d20963603
@@ -39,7 +39,7 @@ entries:
   postgresql:
   - apiVersion: v1
     appVersion: 10.6.0
-    created: "2020-10-13T11:28:03.1264504Z"
+    created: "2020-10-13T11:58:13.5692485Z"
     description: Chart for PostgreSQL, an object-relational database management system
       (ORDBMS) with an emphasis on extensibility and on standards-compliance.
     digest: fd734f4e2e9a253f1e59c9486e022239a9af6e2c6a8b016c3e8298df419b7689
@@ -63,4 +63,4 @@ entries:
     urls:
     - charts/postgresql-3.9.5.tgz
     version: 3.9.5
-generated: "2020-10-13T11:28:03.1037253Z"
+generated: "2020-10-13T11:58:13.5431828Z"
