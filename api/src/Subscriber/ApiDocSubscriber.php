@@ -43,7 +43,7 @@ class ApiDocSubscriber implements EventSubscriberInterface
         $method = $event->getRequest()->getMethod();
         $route = $event->getRequest()->attributes->get('_route');
 //        var_dump($route);
-        if(!$result instanceof ApiDoc || ($route != 'api_api_docs_post_parse_collection' && $route !='api_api_docs_post_parseurl_collection' )){
+        if (!$result instanceof ApiDoc || ($route != 'api_api_docs_post_parse_collection' && $route != 'api_api_docs_post_parseurl_collection')) {
             //var_dump('a');
             return;
         }
@@ -51,8 +51,7 @@ class ApiDocSubscriber implements EventSubscriberInterface
         if ($route == 'api_api_docs_post_parse_collection') {
             $contentType = $event->getRequest()->headers->get('Content-Type');
             $content = $event->getRequest()->getContent();
-        }
-        else{
+        } else {
             //var_dump($event->getRequest());
             $url = json_decode($event->getRequest()->getContent(), true)['url'];
 //            var_dump($url);

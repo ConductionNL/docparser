@@ -151,6 +151,7 @@ class ApiDocService
                 return 'warning';
             }
         }
+
         return 'danger';
     }
 
@@ -229,9 +230,9 @@ class ApiDocService
     {
         //var_dump($parameters);
         foreach ($parameters as $parameter) {
-            if (key_exists('name', $parameter) && (substr($parameter['name'],0,strlen('order')) === 'order' || substr($parameter['name'],0,strlen('sorteer')) === 'sorteer') && $parameter['in'] == 'query')
+            if (key_exists('name', $parameter) && (substr($parameter['name'], 0, strlen('order')) === 'order' || substr($parameter['name'], 0, strlen('sorteer')) === 'sorteer') && $parameter['in'] == 'query') {
                 return 'ok';
-            elseif (!key_exists('name', $parameter)) {
+            } elseif (!key_exists('name', $parameter)) {
                 switch ($this->checkReferencedParameterForValue($parameter, $oas, null, ['order', 'sorteer'])) {
                     case 'ok':
                         return 'ok';
