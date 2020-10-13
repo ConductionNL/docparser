@@ -7,15 +7,18 @@ settings:
   projectName: dps
   name: dps
   title: Doc Parser Service
-  version: V.0.1
+  version: V1.0
+  majorVersion: v1
   id: 
   description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.&#039;'
   type: component
-  repro: https://github.com/ConductionNL/docparser
-  demo: dps.conduction.nl
+  repro: https://github.com/ConductionNL/proto-component
+  demo: dps.zaakonline.nl
   container: https://hub.docker.com/repository/docker/conduction/dps-php
-  domain: dev
+  domain: zuid-drecht.nl
   subdomain: dps
+  subpath: dps
+  subpathRouting: true
   organisationName: Conduction
   email: info@conduction.nl
   country: Netherlands
@@ -51,8 +54,8 @@ security:
   commongroundKey: "9329d8d0-1d5e-433c-bb47-6991053c7fcb"
   applicationKey: "45c1a4b6-59d3-4a6e-86bf-88a872f35845"
   userKey: "79d5b14c-70ab-41fb-ac02-917e3288870b"
-  authorisationProviderUser: 
-  authorisationProviderApplication: 
+  authorisationProviderUser: https://uc.zuid-drecht.nl
+  authorisationProviderApplication: https://openzaak.dev.zuid-drecht.nl/authorizaties/api/v1
 
 
 php:

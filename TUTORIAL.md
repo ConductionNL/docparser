@@ -74,8 +74,7 @@ We should now see a wizard that allows us to either make new entities, or add pa
 
 ## Keeping your repository up to date with the Conduction Common Ground component 
 
-There are basically three reasons why you should want to keep your repository up to date with the Conduction proto component:
-
+There are basically three reasons why you should want to keep your repository up to date with the Conduction proto component
 * Security, Conduction performs regular security updates on 
 * Functionality we strive to make regular 
 * Compliance, as discussions in the broader Common Ground community progress API standards might advance or change. Conduction will regularly update the Common Ground component with those changes. 
@@ -339,18 +338,6 @@ Afther you have abtained a kuneconfig you need to save it to your repository as 
 Documentation and dockblocks
 -------
 You want both your redoc documentation and your code to be readable and reausable to other developers. To this effect we use docblok annotation. You can read more about that [here](https://docs.phpdoc.org/references/phpdoc/basic-syntax.html) but the basic is this, we supply each class and propery with a docblock contained within /\* \* / characters. At the very least we want to describe our properties, the expected results and example data (see the example under [audittrail](#audittrail)
-
-You can generate documantation trough docker-compose exec php php phpDocumentor.phar -d src -t public/docs
-
-### Adjusting your readme file 
-
-### Using docblocks for in code documentation
-
-### Setting up you Read the Docs page
-
-### Setting up github pages
-
-### Exposing your API documentation
 
 Audittrail
 -------
