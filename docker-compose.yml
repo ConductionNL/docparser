@@ -1,7 +1,6 @@
-version: '3.5'
+version: "3.5"
 
-x-cache:
-  &cache
+x-cache: &cache
   cache_from:
     - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-php
     - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-nginx
@@ -10,8 +9,7 @@ x-cache:
     - ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-sphinx
 
 services:
-  php:
-    &php
+  php: &php
     image: ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-php:${APP_ENV}
     build:
       context: ./api
@@ -102,8 +100,7 @@ services:
     environment:
       - NGINX_HOST=php
 
-  cache-proxy:
-    &varnish
+  cache-proxy: &varnish
     image: ${CONTAINER_REGISTRY_BASE}/${CONTAINER_PROJECT_NAME}-varnish:${APP_ENV}
     build:
       context: ./api

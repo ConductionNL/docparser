@@ -6,7 +6,7 @@ settings:
   registryBase: docker.io/conduction
   projectName: dps
   name: dps
-  title: Proto component commonground
+  title: Doc Parser Service
   version: V1.0
   majorVersion: v1
   id: 
