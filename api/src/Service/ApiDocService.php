@@ -143,15 +143,14 @@ class ApiDocService
             foreach ($path as $search) {
                 $bag = $bag[$search];
             }
-            if($value != null && substr($bag['name'],0,strlen($value)) === $value && $bag['in'] == $in)
+            if ($value != null && substr($bag['name'], 0, strlen($value)) === $value && $bag['in'] == $in) {
                 return 'ok';
             } elseif ($values == null && !empty($values) && in_array($bag['name'], $values)) {
                 return 'ok';
+            } elseif (array_key_exists('$ref', $parameter) && substr($parameter['$ref'], 0, 1) != '#') {
+                return 'warning';
             }
-        } elseif (array_key_exists('$ref', $parameter) && substr($parameter['$ref'], 0, 1) != '#') {
-            return 'warning';
         }
-
         return 'danger';
     }
 
