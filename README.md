@@ -2,11 +2,7 @@
 
 Description
 ----
-Welcome to the the VNG Common Ground proto component!
-
-This "proto" component provides a plug and play solution for component generation on Common Ground. That means that it takes away all the hassle of setting op codebases, containers and following the VNG Api Standaard. It does all that for you!
-
-For that we use **[Api Platform](https://api-platform.com)**, a next-generation web framework designed to easily create API-first projects, without compromising extensibility and flexibility.
+The commonground docparser analyses the OAS and/or public code documantation of components form feedback on NL apistrategie en NLX compliancy.
 
 Additional Information
 ----
