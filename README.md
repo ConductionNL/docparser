@@ -1,37 +1,88 @@
+# Docparser
 
-# Readme
--------
-Welcome to the Conduction API Documentation parser!
+Description
+----
+Welcome to the the VNG Common Ground proto component!
 
-This component, based on the [Commonground Proto Component](https://github.com/ConductionNL/Proto-Component-Commonground),
-is aimed at checking APIs developed for dutch governmental organisations.
+This "proto" component provides a plug and play solution for component generation on Common Ground. That means that it takes away all the hassle of setting op codebases, containers and following the VNG Api Standaard. It does all that for you!
 
-This Documentation Parser Service validates OpenAPI Specifications for adherence to design rules imposed by the [NL API Strategie](https://docs.geostandaarden.nl/api/API-Strategie/),
-and additionally checks for correct implementation of [NLX](https://docs.nlx.io).
+For that we use **[Api Platform](https://api-platform.com)**, a next-generation web framework designed to easily create API-first projects, without compromising extensibility and flexibility.
 
-Getting started
--------
-To run this API documentation parser docker is required.
+Additional Information
+----
 
-The component contains a docker-compose file that will run the containers needed for this component. For further information on running this component, see the [Tutorial](TUTORIAL.md).
-
-Usage
--------
-Once running, OpenAPI specifications are send to `/api_docs/parser` with a POST request containing a content-type header corresponding to your OpenAPI specification
-and the OpenAPI specification as its body.
-
-Features
--------
-The full feature list can be found in our [Design Decisions](DESIGN.md). Additionally our [Roadmap](ROADMAP.md) contains a list of features that are already planned for future iterations.
-
-Requesting features
--------
-Do you need a feature that is not listed? don't hesitate to send us a [feature request](https://github.com/ConductionNL/commonground-component/issues/new?assignees=&labels=&template=feature_request.md&title=).  
+- [Contributing](CONTRIBUTING.md)
+- [ChangeLogs](CHANGELOG.md)
+- [RoadMap](ROADMAP.md)
+- [Security](SECURITY.md)
+- [Licence](LICENSE.md)
 
 
-  
+Installation
+----
+We differentiate between two way's of installing this component, a local installation as part of the provided developers toolkit or an [helm](https://helm.sh/) installation on an development or production environment.
+
+#### Local installation
+First make sure you have [docker desktop](https://www.docker.com/products/docker-desktop) running on your computer. Then clone the repository to a directory on your local machine through a [git command](https://github.com/git-guides/git-clone) or [git kraken](https://www.gitkraken.com) (ui for git). If successful you can now navigate to the directory of your cloned repository in a command prompt and execute docker-compose up.
+```CLI
+$ docker-compose up
+```
+This will build the docker image and run the used containers and when seeing the log from the php container: "NOTICE: ready to handle connections", u are ready to view the documentation at localhost on your preferred browser.
+
+#### Instalation on Kubernetes or Haven
+As a haven compliant commonground component this component is installable on kubernetes trough helm. The helm files can be found in the api/helm folder. For installing this component trough helm simply open your (still) favorite command line interface and run
+```CLI
+$ helm install [name] ./api/helm --kubeconfig kubeconfig.yaml --namespace [name] --set settings.env=prod,settings.debug=0,settings.cache=1
+```
+For an in depth installation guide you can refer to the [installation guide](INSTALLATION.md), it also contains a short tutorial on getting your cluster ready to expose your installation to the world
+
+Standards
+----
+
+This component adheres to international, national and local standards (in that order), notable standards are:
+
+- Any applicable [W3C](https://www.w3.org) standard, including but not limited to [rest](https://www.w3.org/2001/sw/wiki/REST), [JSON-LD](https://www.w3.org/TR/json-ld11/) and [WEBSUB](https://www.w3.org/TR/websub/)
+- Any applicable [schema](https://schema.org/) standard
+- [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)
+- [GAIA-X](https://www.data-infrastructure.eu/GAIAX/Navigation/EN/Home/home.html)
+- [Publiccode](https://docs.italia.it/italia/developers-italia/publiccodeyml-en/en/master/index.html), see the [publiccode](api/public/schema/publiccode.yaml) for further information
+- [Forum Stanaardisatie](https://www.forumstandaardisatie.nl/open-standaarden)
+- [NL API Strategie](https://docs.geostandaarden.nl/api/API-Strategie/)
+- [Common Ground Realisatieprincipes](https://componentencatalogus.commonground.nl/20190130_-_Common_Ground_-_Realisatieprincipes.pdf)
+- [Haven](https://haven.commonground.nl/docs/de-standaard)
+- [NLX](https://docs.nlx.io/understanding-the-basics/introduction)
+- [Standard for Public Code](https://standard.publiccode.net/), see the [compliancy scan](publiccode.md) for further information.
+
+This component is based on the following [schema.org](https://schema.org) sources:
+- [Address](https://schema.org/PostalAddress)
+- [Person](https://schema.org/Person)
+
+Developers toolkit and technical information
+----
+You can find the data model, OAS documentation and other helpfull developers material like a  postman collection under api/public/schema, development support is provided trough the [samenorganiseren slack channel](https://join.slack.com/t/samenorganiseren/shared_invite/zt-dex1d7sk-wy11sKYWCF0qQYjJHSMW5Q).
+
+Couple of quick tips when you start developing
+- If you not yet have setup the component locally read the Tutorial for setting up your local environment.
+- You can find the other components on [Github](https://github.com/ConductionNL).
+- Take a look at the [commonground componenten catalogus](https://componentencatalogus.commonground.nl/componenten?) to prevent development collitions.
+- Use [Commongroun.conduction.nl](https://commonground.conduction.nl/) for easy deployment of test environments to deploy your development to.
+- For information on how to work with the component you can refer to the tutorial [here](TUTORIAL.md).
+
+
+Contributing
+----
+First of al please read the [Contributing](CONTRIBUTING.md) guideline's ;)
+
+But most imporantly, welcome! We strife to keep an active community at [commonground.nl](https://commonground.nl/), please drop by and tell is what you are thinking about so that we can help you along.
+
 
 Credits
--------
+----
 
-[![Conduction](https://raw.githubusercontent.com/ConductionNL/orderscomponent/master/resources/logo-conduction.svg?sanitize=true "Conduction")](https://www.conduction.nl/)
+Information about the authors of this component can be found [here](AUTHORS.md)
+
+
+
+
+
+Copyright © [Utrecht](https://www.utrecht.nl/) 2019
