@@ -3,64 +3,14 @@ entries:
   dps:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-10-13T12:13:56.0314161Z"
-    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
-      interface beschikbaar.&#039;'
-    digest: eeca42da5456232a6283f6cf23bf125db106ea9f4dfae32d6b4d6cfa3cea9ec4
+    created: "2021-02-17T21:18:44.8031137Z"
+    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
+      beschikbaar.
+    digest: 5636082abd6d381b4e9f965db428793772168524c43c32e5c5bdcc2cafba36f4
     home: dps.zaakonline.nl
     icon: dps.zaakonline.nl
     name: dps
     urls:
     - dps-0.1.0.tgz
     version: 0.1.0
-  mercure:
-  - apiVersion: v1
-    appVersion: 0.6.0
-    created: "2020-10-13T12:13:56.0387978Z"
-    description: The Mercure hub allows to push data updates using the Mercure protocol
-      to web browsers and other HTTP clients in a convenient, fast, reliable and battery-efficient
-      way
-    digest: 121d6f03c42844162bc6de682d71e19db5879612f42355cdebb793f3971c7f54
-    home: https://mercure.rocks
-    icon: https://cdn.jsdelivr.net/gh/dunglas/mercure/public/mercure.svg
-    keywords:
-    - mercure
-    - hub
-    - push
-    maintainers:
-    - email: dunglas+mercure@gmail.com
-      name: dunglas
-    name: mercure
-    sources:
-    - https://github.com/dunglas/mercure
-    urls:
-    - charts/mercure-1.0.10.tgz
-    version: 1.0.10
-  postgresql:
-  - apiVersion: v1
-    appVersion: 10.6.0
-    created: "2020-10-13T12:13:56.0488501Z"
-    description: Chart for PostgreSQL, an object-relational database management system
-      (ORDBMS) with an emphasis on extensibility and on standards-compliance.
-    digest: fd734f4e2e9a253f1e59c9486e022239a9af6e2c6a8b016c3e8298df419b7689
-    home: https://www.postgresql.org/
-    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-110x117.png
-    keywords:
-    - postgresql
-    - postgres
-    - database
-    - sql
-    - replication
-    - cluster
-    maintainers:
-    - email: containers@bitnami.com
-      name: Bitnami
-    - email: cedric@desaintmartin.fr
-      name: desaintmartin
-    name: postgresql
-    sources:
-    - https://github.com/bitnami/bitnami-docker-postgresql
-    urls:
-    - charts/postgresql-3.9.5.tgz
-    version: 3.9.5
-generated: "2020-10-13T12:13:56.0249805Z"
+generated: "2021-02-17T21:18:44.7980359Z"

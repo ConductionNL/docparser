@@ -1,18 +1,18 @@
 openapi: 3.0.2
 info:
-  title: 'Proto component commonground'
+  title: 'Doc Parser Service'
   version: V1.0
   description: |
     API Details
-    - Component: Proto component commonground
+    - Component: Doc Parser Service
     - Reference: dps
     - Enviroment: dev
     - Version: V1.0
-    - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
+    - Repository: [online](https://github.com/ConductionNL/docparser) / [zip](https://github.com/ConductionNL/docparser/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/dps-php) 
     - Datamodel: [postman](/schema/dps.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
     
-    'Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.'         
+    Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.         
     
 paths:
   /api_docs:
@@ -4666,12 +4666,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-10-13 12:12:21'
+        example: '2021-02-17 21:10:50'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-10-13 12:12:21'
+        example: '2021-02-17 21:10:50'
     required: []
   AuditTrail-write:
     properties:
@@ -4719,12 +4719,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-10-13 12:12:21'
+        example: '2021-02-17 21:10:50'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-10-13 12:12:21'
+        example: '2021-02-17 21:10:50'
     required: []
   ChangeLog-write:
     properties:

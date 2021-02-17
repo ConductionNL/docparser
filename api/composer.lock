@@ -555,12 +555,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ConductionNL/CommonGroundBundle.git",
-                "reference": "e44b488a700ba71f645482a200a9015f4cb20412"
+                "reference": "1550519c25f230c22bd97690be9b9b170a84d2e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ConductionNL/CommonGroundBundle/zipball/e44b488a700ba71f645482a200a9015f4cb20412",
-                "reference": "e44b488a700ba71f645482a200a9015f4cb20412",
+                "url": "https://api.github.com/repos/ConductionNL/CommonGroundBundle/zipball/1550519c25f230c22bd97690be9b9b170a84d2e9",
+                "reference": "1550519c25f230c22bd97690be9b9b170a84d2e9",
                 "shasum": ""
             },
             "require": {
@@ -569,24 +569,24 @@
                 "api-platform/schema-generator": "^2.1@stable",
                 "doctrine/doctrine-bundle": "^1.6 || ^2.0",
                 "doctrine/doctrine-fixtures-bundle": "^3.2",
-                "doctrine/rst-parser": "^0.1.0",
                 "guzzlehttp/guzzle": "^6.3",
                 "knplabs/knp-markdown-bundle": "^1.8",
                 "mollie/mollie-api-php": "^2.0",
-                "php": "^7.1.3",
+                "php": "^7.4.0",
                 "ramsey/uuid": "^3.8",
                 "ramsey/uuid-doctrine": "^1.5",
                 "stof/doctrine-extensions-bundle": "^1.3",
                 "sumup/sumup-ecom-php-sdk": "^1.0",
-                "symfony/cache": "^4.3@stable",
+                "symfony/cache": "^5.0@stable",
                 "symfony/cache-contracts": "^1.1@stable",
-                "symfony/console": "^4.3@stable",
+                "symfony/console": "^5.0@stable",
                 "symfony/contracts": "^1.0",
-                "symfony/event-dispatcher": "^4.2",
+                "symfony/event-dispatcher": "^5.0",
                 "symfony/maker-bundle": "^1.11@stable",
-                "symfony/translation": "4.4.*",
-                "symfony/var-exporter": "^4.2",
-                "twig/extensions": "^1.5"
+                "symfony/translation": "5.1.*",
+                "symfony/var-exporter": "^5.0",
+                "twig/extensions": "^1.5",
+                "twig/twig": "2.13.*"
             },
             "conflict": {
                 "doctrine/dbal": "<2.5",
@@ -1875,6 +1875,7 @@
                 "reflection",
                 "static"
             ],
+            "abandoned": "roave/better-reflection",
             "time": "2020-03-27T11:06:43+00:00"
         },
         {
@@ -3639,6 +3640,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
+            "abandoned": "https://github.com/fabpot/local-php-security-checker",
             "time": "2019-11-01T13:20:14+00:00"
         },
         {
@@ -8588,12 +8590,12 @@
             "version": "1.8.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "ab2cb0b3b559010b75981b1bdce728da3ee90ad6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/ab2cb0b3b559010b75981b1bdce728da3ee90ad6",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/ab2cb0b3b559010b75981b1bdce728da3ee90ad6",
                 "reference": "ab2cb0b3b559010b75981b1bdce728da3ee90ad6",
                 "shasum": ""
             },
