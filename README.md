@@ -31,7 +31,20 @@ Do you need a feature that is not listed? don't hesitate to send us a [feature r
 
   
 
+Contributing
+----
+First of al please read the [Contributing](CONTRIBUTING.md) guideline's ;)
+
+But most imporantly, welcome! We strife to keep an active community at [commonground.nl](https://commonground.nl/), please drop by and tell is what you are thinking about so that we can help you along.
+
+
 Credits
--------
+----
 
 [![Conduction](https://raw.githubusercontent.com/ConductionNL/orderscomponent/master/resources/logo-conduction.svg?sanitize=true "Conduction")](https://www.conduction.nl/)
+
+
+
+
+
+Copyright © [Conduction](https://www.conduction.nl/) 2019
