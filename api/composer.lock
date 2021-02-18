@@ -619,12 +619,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ConductionNL/CommonGroundBundle.git",
-                "reference": "1550519c25f230c22bd97690be9b9b170a84d2e9"
+                "reference": "c106ca645136cda1a87c9658ccc47f0c4c7294b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ConductionNL/CommonGroundBundle/zipball/1550519c25f230c22bd97690be9b9b170a84d2e9",
-                "reference": "1550519c25f230c22bd97690be9b9b170a84d2e9",
+                "url": "https://api.github.com/repos/ConductionNL/CommonGroundBundle/zipball/c106ca645136cda1a87c9658ccc47f0c4c7294b1",
+                "reference": "c106ca645136cda1a87c9658ccc47f0c4c7294b1",
                 "shasum": ""
             },
             "require": {
@@ -702,12 +702,7 @@
                 "postcode",
                 "rsin"
             ],
-            "support": {
-                "email": "ruben@conduction.nl",
-                "issues": "https://github.com/ConductionNL/ConductionCommonGroundBundle/issues",
-                "source": "https://github.com/ConductionNL/ConductionCommonGroundBundle"
-            },
-            "time": "2020-12-23T12:31:49+00:00"
+            "time": "2021-02-18T16:40:43+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -2129,7 +2124,6 @@
                 "orm",
                 "persistence"
             ],
-            "abandoned": "roave/better-reflection",
             "time": "2020-03-27T11:06:43+00:00"
         },
         {
@@ -11658,5 +11652,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

@@ -4,15 +4,15 @@
 
 settings:
   registryBase: docker.io/conduction
-  projectName: dps
-  name: dps
+  projectName: docparser
+  name: docparser
   version: V1.0
   description: 'Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.'
   repro: https://github.com/ConductionNL/docparser
   demo: dps.zaakonline.nl
   domain: zuid-drecht.nl
-  subdomain: dps
-  subpath: dps
+  subdomain: docparser
+  subpath: docparser
   subpathRouting: true
   env: dev
   web: false

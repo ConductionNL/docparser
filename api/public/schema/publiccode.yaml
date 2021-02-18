@@ -1,13 +1,13 @@
 publiccodeYmlVersion: "0.2"
 
-name: dps
+name: docparser
 applicationSuite: commonground
 url: "https://github.com/ConductionNL/docparser"
 landingURL: "dps.zaakonline.nl"
 isBasedOn: "https://github.com/ConductionNL/Proto-component-commonground.git"
 softwareVersion: "V1.0"
 releaseDate: "2021-18-02"
-logo: dps.zaakonline.nl
+logo: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
 monochromeLogo: img/logo-mono.svg
 
 inputTypes:

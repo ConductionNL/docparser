@@ -3,13 +3,26 @@ entries:
   dps:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2021-02-18T08:42:34.3131011Z"
+    created: "2021-02-18T19:53:29.7951827Z"
     description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
       beschikbaar.
-    digest: da26f501850c66b5a28384c47e18e87714f06c69a7ff6468f721fe25daa4bac9
+    digest: b893b10232f9f55deb60f07036462c841e99a026edbec904dfee12d412aa7aa8
     home: dps.zaakonline.nl
     icon: dps.zaakonline.nl
+    keywords:
+    - commonground
+    - haven
+    - nlx
+    - component
+    maintainers:
+    - email: ruben@conduction.nl
+      name: Ruben van der Linde
+    - email: info@conduction.nl
+      name: Conduction
     name: dps
+    sources:
+    - https://commonground.conduction.nl/
+    - https://www.commonground.nl/
     urls:
     - dps-0.1.0.tgz
     version: 0.1.0
@@ -18,7 +31,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-02-18T08:42:34.3216225Z"
+    created: "2021-02-18T19:53:29.8070624Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -47,4 +60,4 @@ entries:
     urls:
     - charts/postgresql-10.1.1.tgz
     version: 10.1.1
-generated: "2021-02-18T08:42:34.3043254Z"
+generated: "2021-02-18T19:53:29.7568031Z"
